@@ -1,69 +1,5 @@
 #include "fdf.h"
 
-int		aff_key(int keycode)
-{
-	ft_putstr("touche");
-	ft_putnbr(keycode);
-	ft_putchar('\n');
-	if (keycode == 12 || keycode == 53)
-		exit(EXIT_SUCCESS);
-	return (0);
-}
-
-void ft_Line(void *mlx, void *win, int x1, int y1, int x2, int y2) //bress
-{
-    int x,y;
-    int Dx,Dy;
-    int xincr,yincr;
-    int erreur;
-    int i;
-
-    Dx = abs(x2 - x1);
-    Dy = abs(y2 - y1);
-    if(x1 < x2)
-        xincr = 1;
-    else
-        xincr = -1;
-    if(y1 < y2)
-        yincr = 1;
-    else
-        yincr = -1;
-    x = x1;
-    y = y1;
-    if(Dx > Dy)
-    {
-        erreur = Dx / 2;
-        for(i=0;i<Dx;i++)
-        {
-            x += xincr;
-            erreur += Dy;
-            if(erreur > Dx)
-            {
-                erreur -= Dx;
-                y += yincr;
-            }
-            mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF);
-        }
-    }
-    else
-    {
-        erreur = Dy / 2;
-        for(i = 0; i < Dy; i++)
-        {
-            y += yincr;
-            erreur += Dx;
-            if(erreur > Dy)
-            {
-                erreur -= Dy;
-                x += xincr;
-            }
-            mlx_pixel_put(mlx, win, x, y, 0x00FFFFFF);
-        }
-    }
-    mlx_pixel_put(mlx, win, x1, y1, 0x00FFFFFF);
-    mlx_pixel_put(mlx, win, x2, y2, 0x00FFFFFF);
-}
-
 int 	ft_init_struct(t_env **env, char **av)
 {
 	int 	i;
@@ -101,8 +37,14 @@ int		main(int ac, char **av)
 	int 	tmpy;
 	int 	tmp2x;
 	int 	tmp2y;
+	int 	test;
+	int 	zoom;
 
 	i = 0;
+	zoom = 20;
+	test = ft_error(ac);
+	if (test == -1)
+		return (-1);
 	/*if ((env->fd = open(av[1], O_RDONLY)) > 0)
 		while ((env->ret = get_next_line((int const)env->fd, &env->line)) > 0)
 			i++;
@@ -146,10 +88,13 @@ int		main(int ac, char **av)
 		while (xc != tmpx)
 		{
 			tmp2x = xc;
-			tmp2y = yc * 20;
+			tmp2y = yc * zoom;
 			if (xc != 0)
-				tmp2x = xc * 20;
-			mlx_pixel_put(env->mlx, env->win, tmp2x, tmp2y, 0x00FFFFFF);
+				tmp2x = xc * zoom;
+			if (tab[yc][xc] == 10)
+				mlx_pixel_put(env->mlx, env->win, tmp2x, tmp2y, 0x0000FF);
+			else
+				mlx_pixel_put(env->mlx, env->win, tmp2x, tmp2y, 0xFFFFFF);
 			xc++;
 			ft_putstr("\033[032;32m1\033[0m");
 		}
@@ -157,21 +102,9 @@ int		main(int ac, char **av)
 		ft_putstr("\033[032;31m0\033[0m");
 	}
 	ft_putchar('\n');
-	yc = 0;
-	while (yc != tmpy)
-	{
-		xc = 0;
-		while (xc != tmpx)
-		{
-			tmp2x = xc;
-			tmp2y = yc * 20;
-			if (xc != 0)
-				tmp2x = xc * 20;
-			ft_Line(env->mlx, env->win, tmp2x, tmp2y, xc + 1, yc + 1);
-			xc++;
-		}
-		yc++;
-	}
+	ft_while_x(env, xc, yc, tmpx, tmpy);
+	ft_while_y(env, xc, yc, tmpx, tmpy);
 	mlx_key_hook(env->win, aff_key, env->mlx);
+	mlx_mouse_hook(env->win, aff_mouse, env->mlx);
 	mlx_loop(env->mlx);
 }

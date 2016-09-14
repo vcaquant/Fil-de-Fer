@@ -1,25 +1,31 @@
-NAME = 		fdf
+NAME = 			fdf
 
-SRC = 		fdf.c
+SRC = 			fdf.c \
+						ft_code.c \
+						ft_bressenham.c \
+						ft_error.c
 
-OBJ = 		fdf.o
+OBJ = 			fdf.o \
+						ft_code.o \
+						ft_bressenham.o \
+						ft_error.o
 
-HEADER =	./libft/libft.h\
+HEADER =		./libft/libft.h\
 
-FINDLIBFT = -Llibft
+FINDLIBFT =	-Llibft
 
-PT_A =		./minilibx_macos/libmlx.a \
+PT_A =			./minilibx_macos/libmlx.a \
 			./libft/libft.a
 
-FLAGS = 	-Wall -Wextra -Werror
+FLAGS = 		-Wall -Wextra -Werror
 
-LIBX_FS =	-framework OpenGL -framework AppKit
+LIBX_FS =		-framework OpenGL -framework AppKit
 
 LIBFT_DIR =	./libft/
 
 LIBX_DIR =	./minilibx_macos/
 
-CC = 		gcc
+CC = 				gcc
 
 all:	comp_oth $(NAME)
 

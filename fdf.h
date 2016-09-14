@@ -25,6 +25,15 @@ typedef struct 	s_env
 	int			x;
 	int			y;
 	char		*line;
-}				t_env;
+	int 		p;
+}								t_env;
+
+int 	ft_error(int ac);
+int 	aff_key(int keycode);
+int 	aff_mouse(int mousecode);
+void 	ft_bresenham_x(t_env *env, int xstart, int ystart, int xend, int yend);
+void 	ft_bresenham_y(t_env *env, int xstart, int ystart, int xend, int yend);
+void 	ft_while_x(t_env *env, int xc, int yc, int tmpx, int tmpy);
+void 	ft_while_y(t_env *env, int xc, int yc, int tmpx, int tmpy);
 
 #endif
