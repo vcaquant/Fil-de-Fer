@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/16 16:54:08 by vcaquant          #+#    #+#             */
+/*   Updated: 2016/09/16 16:55:21 by vcaquant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-int   ft_error(int ac)
+int	ft_error(int ac)
 {
-  if (ac != 2)
-  {
-    ft_putstr("error syntax : ./fdf <file>");
-    return (-1);
-  }
-  return (0);
+	if (ac != 2)
+	{
+		ft_putstr("error syntax : ./fdf <file>");
+		return (-1);
+	}
+	return (0);
 }

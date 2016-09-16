@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/16 16:49:27 by vcaquant          #+#    #+#             */
+/*   Updated: 2016/09/16 16:53:42 by vcaquant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 
@@ -16,26 +28,24 @@
 # include <sys/uio.h>
 # include <sys/types.h>
 
-typedef struct 	s_env
+typedef struct	s_env
 {
-	void		*mlx;
-	void		*win;
-	int			ret;
-	int			fd;
-	int			x;
-	int			y;
-	char		*line;
-	int 		p;
-	//int 		i;
-	//struct s_env *next;
-}								t_env;
+	void	*mlx;
+	void	*win;
+	int		ret;
+	int		fd;
+	int		x;
+	int		y;
+	char	*line;
+	int		p;
+}				t_env;
 
-int 	ft_error(int ac);
-int 	aff_key(int keycode);
-int 	aff_mouse(int mousecode);
-void 	ft_bresenham_x(t_env *env, int xstart, int ystart, int xend, int yend);
-void 	ft_bresenham_y(t_env *env, int xstart, int ystart, int xend, int yend);
-void 	ft_while_x(t_env *env, int xc, int yc, int tmpx, int tmpy);
-void 	ft_while_y(t_env *env, int xc, int yc, int tmpx, int tmpy);
+int				ft_error(int ac);
+int				aff_key(int keycode);
+int				aff_mouse(int mousecode);
+void			ft_bresenham_x(t_env *env, int xstart, int ystart, int xend, int yend);
+void			ft_bresenham_y(t_env *env, int xstart, int ystart, int xend, int yend);
+void			ft_while_x(t_env *env, int xc, int yc, int tmpx, int tmpy);
+void			ft_while_y(t_env *env, int xc, int yc, int tmpx, int tmpy);
 
 #endif

@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_code.c                                          :+:      :+:    :+:   */
+/*   ft_trdtotwd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/16 16:46:57 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/16 16:47:59 by vcaquant         ###   ########.fr       */
+/*   Created: 2016/09/16 16:44:12 by vcaquant          #+#    #+#             */
+/*   Updated: 2016/09/16 16:44:17 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		aff_key(int keycode)
+t_env	ft_trdtotwd(int x, int y, int z)
 {
-	ft_putstr("touche");
-	ft_putnbr(keycode);
-	ft_putchar('\n');
-	if (keycode == 12 || keycode == 53)
-		exit(EXIT_SUCCESS);
-	return (0);
-}
+  t_env	n;
 
-int		aff_mouse(int mousecode)
-{
-	ft_putstr("souris");
-	ft_putnbr(mousecode);
-	ft_putchar('\n');
-	if (mousecode == 1)
-		ft_putstr("Arrete d'appuyer sur moi, ça ne fais rien !\n");
-	return (0);
+  n.p = (16777215 - (((z * z / 2) / 27 * 132344 + 42) % 16777215)) / 2;
+  x = x * 30;
+  z = z * -2;
+  y = y * 30;
+  n.x = (x - y) * 0.894427191 + 960;
+  n.y = (z + (x + y) * 0.4472135955) + 128;
+  return (n);
 }

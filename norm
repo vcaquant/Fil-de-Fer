@@ -1,0 +1,160 @@
+Norme: ./fdf.h
+Error (line 46): line has 88 characters
+Error (line 47): line has 88 characters
+Norme: ./ft_code.c
+Norme: ./ft_error.c
+Norme: ./matrix.c
+Warning: /nfs/2015/v/vcaquant/github/FdF_v2/matrix.c may not compile or is invalid for some reasons.
+Norme: ./ft_trdtotwd.c
+Error (line 17): bad indentation
+Error (line 17): must begin only by tabulations
+Error (line 19): bad indentation
+Error (line 19): must begin only by tabulations
+Error (line 20): bad indentation
+Error (line 20): must begin only by tabulations
+Error (line 21): bad indentation
+Error (line 21): must begin only by tabulations
+Error (line 22): bad indentation
+Error (line 22): must begin only by tabulations
+Error (line 23): bad indentation
+Error (line 23): must begin only by tabulations
+Error (line 24): bad indentation
+Error (line 24): must begin only by tabulations
+Error (line 25): bad indentation
+Error (line 25): must begin only by tabulations
+Norme: ./ft_bressenham.c
+Error: global scope bad aligned
+Error: 42 header not at top of the file
+Error (line 3): ft_bresenham_x have 5 parameters
+Error (line 3): Space before function name
+Error (line 3, col 4): bad spacing
+Error (line 5, col 4): bad spacing
+Error (line 6, col 4): bad spacing
+Error (line 7, col 4): bad spacing
+Error (line 24): ft_bresenham_y have 5 parameters
+Error (line 24): Space before function name
+Error (line 24, col 4): bad spacing
+Error (line 26, col 4): bad spacing
+Error (line 27, col 4): bad spacing
+Error (line 28, col 4): bad spacing
+Error (line 45): ft_while_x have 5 parameters
+Error (line 45): Space before function name
+Error (line 45): Space before function name
+Error (line 45, col 4): bad spacing
+Error (line 47): bad indentation
+Error (line 47): must begin only by tabulations
+Error (line 47, col 5): bad spacing
+Error (line 48): bad indentation
+Error (line 48): must begin only by tabulations
+Error (line 48, col 5): bad spacing
+Error (line 50): bad indentation
+Error (line 50): must begin only by tabulations
+Error (line 51): bad indentation
+Error (line 51): must begin only by tabulations
+Error (line 52): bad indentation
+Error (line 52): must begin only by tabulations
+Error (line 53): bad indentation
+Error (line 53): must begin only by tabulations
+Error (line 54): bad indentation
+Error (line 54): must begin only by tabulations
+Error (line 55): bad indentation
+Error (line 55): must begin only by tabulations
+Error (line 56): bad indentation
+Error (line 56): must begin only by tabulations
+Error (line 57): bad indentation
+Error (line 57): must begin only by tabulations
+Error (line 58): bad indentation
+Error (line 58): must begin only by tabulations
+Error (line 59): bad indentation
+Error (line 59): must begin only by tabulations
+Error (line 60): bad indentation
+Error (line 60): must begin only by tabulations
+Error (line 61): bad indentation
+Error (line 61): must begin only by tabulations
+Error (line 62): bad indentation
+Error (line 62): must begin only by tabulations
+Error (line 63): bad indentation
+Error (line 63): must begin only by tabulations
+Error (line 64): bad indentation
+Error (line 64): must begin only by tabulations
+Error (line 67): ft_while_y have 5 parameters
+Error (line 67): Space before function name
+Error (line 67): Space before function name
+Error (line 67, col 4): bad spacing
+Error (line 69): bad indentation
+Error (line 69): must begin only by tabulations
+Error (line 69, col 5): bad spacing
+Error (line 70): bad indentation
+Error (line 70): must begin only by tabulations
+Error (line 70, col 5): bad spacing
+Error (line 72): bad indentation
+Error (line 72): must begin only by tabulations
+Error (line 73): bad indentation
+Error (line 73): must begin only by tabulations
+Error (line 74): bad indentation
+Error (line 74): must begin only by tabulations
+Error (line 75): bad indentation
+Error (line 75): must begin only by tabulations
+Error (line 76): bad indentation
+Error (line 76): must begin only by tabulations
+Error (line 77): bad indentation
+Error (line 77): must begin only by tabulations
+Error (line 78): bad indentation
+Error (line 78): must begin only by tabulations
+Error (line 79): bad indentation
+Error (line 79): must begin only by tabulations
+Error (line 80): bad indentation
+Error (line 80): must begin only by tabulations
+Error (line 81): bad indentation
+Error (line 81): must begin only by tabulations
+Error (line 82): bad indentation
+Error (line 82): must begin only by tabulations
+Error (line 83): bad indentation
+Error (line 83): must begin only by tabulations
+Error (line 84): bad indentation
+Error (line 84): must begin only by tabulations
+Error (line 85): bad indentation
+Error (line 85): must begin only by tabulations
+Error (line 86): bad indentation
+Error (line 86): must begin only by tabulations
+Error (line 89): comment not well formatted
+Norme: ./fdf.c
+Error: 42 header not at top of the file
+Error (line 3): Space before function name
+Error (line 3, col 3): bad spacing
+Error (line 5, col 4): bad spacing
+Error (line 21): bad indentation
+Error (line 21): C++ comment
+Error (line 22): bad indentation
+Error (line 22): C++ comment
+Error (line 23): bad indentation
+Error (line 23): C++ comment
+Error (line 24): bad indentation
+Error (line 24): C++ comment
+Error (line 25): bad indentation
+Error (line 25): C++ comment
+Error (line 28): function main has 81 lines
+Error (line 28): declarations in main must be at the top of the function
+Error (line 28, col 0): main has 12 variables
+Error (line 30, col 8): env is instanciated during declaration
+Error (line 31, col 4): bad spacing
+Error (line 32, col 4): bad spacing
+Error (line 33, col 4): bad spacing
+Error (line 34, col 4): bad spacing
+Error (line 34, col 8): tab is instanciated during declaration
+Error (line 35): C++ comment
+Error (line 36, col 4): bad spacing
+Error (line 37, col 4): bad spacing
+Error (line 38, col 4): bad spacing
+Error (line 39, col 4): bad spacing
+Error (line 40, col 4): bad spacing
+Error (line 41, col 4): bad spacing
+Error (line 42, col 4): bad spacing
+Error (line 49): comment not well formatted
+Error (line 49): bad indentation
+Error (line 49): comment not well placed
+Error (line 55): bad indentation
+Error (line 55): must begin only by tabulations
+Error (line 56): bad indentation
+Error (line 56): C++ comment
+Error (line 57): bad indentation
