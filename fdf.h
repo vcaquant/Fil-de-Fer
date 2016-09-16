@@ -26,6 +26,8 @@ typedef struct 	s_env
 	int			y;
 	char		*line;
 	int 		p;
+	//int 		i;
+	//struct s_env *next;
 }								t_env;
 
 int 	ft_error(int ac);

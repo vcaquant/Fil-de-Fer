@@ -32,13 +32,14 @@ int		main(int ac, char **av)
 	int 	xc2;
 	int 	yc;
 	int 	**tab = malloc(sizeof(*tab) * 20);
-	int 	i;
+	//int 	**tab;
 	int 	tmpx;
 	int 	tmpy;
 	int 	tmp2x;
 	int 	tmp2y;
 	int 	test;
 	int 	zoom;
+	int 	i;
 
 	i = 0;
 	zoom = 20;
@@ -52,7 +53,8 @@ int		main(int ac, char **av)
 	while (i < 20)
 	{
     	tab[i] = malloc(sizeof(**tab) * 50);
-    	i++;
+			//env->i = env->next;
+			i++;
 	}
 	yc = 0;
 	(void)ac;
@@ -60,7 +62,6 @@ int		main(int ac, char **av)
 		return (-1);
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
-	//ft_putstr("avant\n");
 	while ((env->ret = get_next_line((int const)env->fd, &env->line)) > 0)
 	{
 		xc = 0;
