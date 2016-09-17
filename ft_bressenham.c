@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-void 	ft_bresenham_x(t_env *env, int xstart, int ystart, int xend, int yend)
+void	ft_brshm_x(t_env *env, int xstart, int ystart, int xend, int yend)
 {
 	int 	dx;
 	int 	dy;
@@ -21,7 +21,7 @@ void 	ft_bresenham_x(t_env *env, int xstart, int ystart, int xend, int yend)
 	}
 }
 
-void 	ft_bresenham_y(t_env *env, int xstart, int ystart, int xend, int yend)
+void 	ft_brshm_y(t_env *env, int xstart, int ystart, int xend, int yend)
 {
 	int 	dx;
 	int 	dy;
