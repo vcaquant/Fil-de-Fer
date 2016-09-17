@@ -1,89 +1,101 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bressenham.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/17 03:21:38 by vcaquant          #+#    #+#             */
+/*   Updated: 2016/09/17 03:31:44 by vcaquant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-void	ft_brshm_x(t_env *env, int xstart, int ystart, int xend, int yend)
+void	ft_bhm_x(t_env *env, int xstrt, int ystrt, int xend, int yend)
 {
-	int 	dx;
-	int 	dy;
-	int 	e;
+	int		dx;
+	int		dy;
+	int		e;
 
-	e = xend - xstart;
+	e = xend - xstrt;
 	dx = e * 2;
-	dy = (yend - ystart) * 2;
-	while (xstart <= xend)
+	dy = (yend - ystrt) * 2;
+	while (xstrt <= xend)
 	{
-		mlx_pixel_put(env->mlx, env->win, xstart, ystart, 0x00FFFFFF);
-		xstart++;
+		mlx_pixel_put(env->mlx, env->win, xstrt, ystrt, 0x00FFFFFF);
+		xstrt++;
 		if ((e = e - dy) <= 0)
 		{
-			ystart++;
+			ystrt++;
 			e = e + dx;
 		}
 	}
 }
 
-void 	ft_brshm_y(t_env *env, int xstart, int ystart, int xend, int yend)
+void	ft_bhm_y(t_env *env, int xstrt, int ystrt, int xend, int yend)
 {
-	int 	dx;
-	int 	dy;
-	int 	e;
+	int		dx;
+	int		dy;
+	int		e;
 
-	e = yend - ystart;
+	e = yend - ystrt;
 	dy = e * 2;
-	dx = (xend - xstart) * 2;
-	while (ystart <= yend)
+	dx = (xend - xstrt) * 2;
+	while (ystrt <= yend)
 	{
-		mlx_pixel_put(env->mlx, env->win, xstart, ystart, 0x00FFFFFF);
-		ystart++;
+		mlx_pixel_put(env->mlx, env->win, xstrt, ystrt, 0x00FFFFFF);
+		ystrt++;
 		if ((e = e - dx) <= 0)
 		{
-			xstart++;
+			xstrt++;
 			e = e + dy;
 		}
 	}
 }
 
-void  ft_while_x(t_env *env, int xc, int yc, int tmpx, int tmpy)
+void	ft_while_x(t_env *env, int xc, int yc, int tmpx, int tmpy)
 {
-  int   tmp2x;
-  int   tmp2y;
+	int		tmp2x;
+	int		tmp2y;
 
-  yc = 0;
-  while (yc != tmpy)
-  {
-    xc = 0;
-    while (xc + 1 != tmpx)
-    {
-      tmp2x = xc;
-      tmp2y = yc * 20;
-      if (xc != 0)
-        tmp2x = xc * 20;
-      ft_bresenham_x(env, tmp2x, tmp2y, (xc + 1) * 20, yc * 20);
-      xc++;
-    }
-    yc++;
-  }
+	yc = 0;
+	while (yc != tmpy)
+	{
+		xc = 0;
+		while (xc + 1 != tmpx)
+		{
+			tmp2x = xc;
+			tmp2y = yc * 20;
+			if (xc != 0)
+				tmp2x = xc * 20;
+			ft_bhm_x(env, tmp2x, tmp2y, (xc + 1) * 20, yc * 20);
+			xc++;
+		}
+		yc++;
+	}
 }
 
-void  ft_while_y(t_env *env, int xc, int yc, int tmpx, int tmpy)
+void	ft_while_y(t_env *env, int xc, int yc, int tmpx, int tmpy)
 {
-  int   tmp2x;
-  int   tmp2y;
+	int		tmp2x;
+	int		tmp2y;
 
-  xc = 0;
-  while (xc != tmpx)
-  {
-    yc = 0;
-    while (yc + 1 != tmpy)
-    {
-      tmp2y = yc;
-      tmp2x = xc * 20;
-      if (yc != 0)
-        tmp2y = yc * 20;
-      ft_bresenham_y(env, tmp2x, tmp2y, xc * 20, (yc + 1) * 20);
-      yc++;
-    }
-    xc++;
-  }
+	xc = 0;
+	while (xc != tmpx)
+	{
+		yc = 0;
+		while (yc + 1 != tmpy)
+		{
+			tmp2y = yc;
+			tmp2x = xc * 20;
+			if (yc != 0)
+				tmp2y = yc * 20;
+			ft_bhm_y(env, tmp2x, tmp2y, xc * 20, (yc + 1) * 20);
+			yc++;
+		}
+		xc++;
+	}
 }
 
 /*void ft_Line(void *mlx, void *win, int x1, int y1, int x2, int y2) //bress

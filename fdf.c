@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/17 03:19:06 by vcaquant          #+#    #+#             */
+/*   Updated: 2016/09/17 04:10:04 by vcaquant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-int 	ft_init_struct(t_env **env, char **av)
+int		ft_init_struct(t_env **env, char **av)
 {
-	int 	i;
+	int		i;
 
 	i = 0;
 	if (!(*env = (t_env*)malloc(sizeof(t_env))))
@@ -18,43 +30,34 @@ void	ft_debug(int **tab, int xc, int yc)
 		ft_putchar(' ');
 	else
 		ft_putstr("  ");
-	//ft_putstr("xc = ");
-	//ft_putnbr(xc);
-	//ft_putstr("yc = ");
-	//ft_putnbr(yc);
-	//ft_putchar('\n');
 }
 
 int		main(int ac, char **av)
 {
-	t_env	*env = NULL;
-	int 	xc;
-	int 	xc2;
-	int 	yc;
-	int 	**tab = malloc(sizeof(*tab) * 20);
-	//int 	**tab;
-	int 	tmpx;
-	int 	tmpy;
-	int 	tmp2x;
-	int 	tmp2y;
-	int 	test;
-	int 	zoom;
-	int 	i;
+	t_env	*env;
+	int		xc;
+	int		xc2;
+	int		yc;
+	int		**tab;
+	int		tmpx;
+	int		tmpy;
+	int		tmp2x;
+	int		tmp2y;
+	int		test;
+	int		zoom;
+	int		i;
 
+	env = NULL;
+	tab = malloc(sizeof(*tab) * 20);
 	i = 0;
 	zoom = 20;
 	test = ft_error(ac);
 	if (test == -1)
 		return (-1);
-	/*if ((env->fd = open(av[1], O_RDONLY)) > 0)
-		while ((env->ret = get_next_line((int const)env->fd, &env->line)) > 0)
-			i++;
-	tab = (int**)malloc(sizeof(int*) * (i + 1));*/
 	while (i < 20)
 	{
-    	tab[i] = malloc(sizeof(**tab) * 50);
-			//env->i = env->next;
-			i++;
+		tab[i] = malloc(sizeof(**tab) * 50);
+		i++;
 	}
 	yc = 0;
 	(void)ac;
@@ -89,7 +92,7 @@ int		main(int ac, char **av)
 		while (xc != tmpx)
 		{
 			tmp2x = xc;
-			tmp2y = yc * zoom;
+			tmp2y = (yc * zoom) - tab[yc][xc];
 			if (xc != 0)
 				tmp2x = xc * zoom;
 			if (tab[yc][xc] == 10)
