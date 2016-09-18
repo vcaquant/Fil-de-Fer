@@ -35,79 +35,69 @@ void	ft_debug(int **tab, int xc, int yc)
 int		main(int ac, char **av)
 {
 	t_env	*env;
-	int		xc;
-	int		xc2;
-	int		yc;
-	int		**tab;
-	int		tmpx;
-	int		tmpy;
-	int		tmp2x;
-	int		tmp2y;
 	int		test;
 	int		zoom;
-	int		i;
 
-	env = NULL;
-	tab = malloc(sizeof(*tab) * 20);
-	i = 0;
-	zoom = 20;
 	test = ft_error(ac);
 	if (test == -1)
 		return (-1);
-	while (i < 20)
-	{
-		tab[i] = malloc(sizeof(**tab) * 50);
-		i++;
-	}
-	yc = 0;
-	(void)ac;
 	if (!ft_init_struct(&env, av))
 		return (-1);
+	zoom = 20;
+	env->yc = 0;
+	(void)ac;
+	env->i = 0;
+	env->tab = malloc(sizeof(*env->tab) * 20);
+	while (env->i < 20)
+	{
+		env->tab[env->i] = malloc(sizeof(**env->tab) * 50);
+		env->i++;
+	}
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
 	while ((env->ret = get_next_line((int const)env->fd, &env->line)) > 0)
 	{
-		xc = 0;
-		xc2 = 0;
-		while (env->line[xc2])
+		env->xc = 0;
+		env->xc2 = 0;
+		while (env->line[env->xc2])
 		{
-			while (env->line[xc2] == ' ')
-				xc2++;
-			tab[yc][xc] = ft_atoi(&env->line[xc2]);
-			ft_debug(tab, xc, yc);
-			xc++;
-			xc2++;
-			if (env->line[xc2] >= '0' && env->line[xc2] <= '9')
-				xc2++;
+			while (env->line[env->xc2] == ' ')
+				env->xc2++;
+			env->tab[env->yc][env->xc] = ft_atoi(&env->line[env->xc2]);
+			ft_debug(env->tab, env->xc, env->yc);
+			env->xc++;
+			env->xc2++;
+			if (env->line[env->xc2] >= '0' && env->line[env->xc2] <= '9')
+				env->xc2++;
 		}
-		ft_putstr("passe\n");
-		yc++;
+		ft_putchar('\n');
+		env->yc++;
 	}
-	tmpx = xc;
-	tmpy = yc;
-	yc = 0;
-	while (yc != tmpy)
+	env->tmpx = env->xc;
+	env->tmpy = env->yc;
+	env->yc = 0;
+	while (env->yc != env->tmpy)
 	{
-		xc = 0;
-		while (xc != tmpx)
+		env->xc = 0;
+		while (env->xc != env->tmpx)
 		{
-			tmp2x = xc;
-			tmp2y = (yc * zoom) - tab[yc][xc];
-			if (xc != 0)
-				tmp2x = xc * zoom;
-			if (tab[yc][xc] == 10)
-				mlx_pixel_put(env->mlx, env->win, tmp2x, tmp2y, 0x0000FF);
+			env->tmp2x = env->xc;
+			env->tmp2y = (env->yc * zoom) - env->tab[env->yc][env->xc];
+			if (env->xc != 0)
+				env->tmp2x = env->xc * zoom;
+			if (env->tab[env->yc][env->xc] == 10)
+				mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0x0000FF);
 			else
-				mlx_pixel_put(env->mlx, env->win, tmp2x, tmp2y, 0xFFFFFF);
-			xc++;
+				mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0xFFFFFF);
+			env->xc++;
 			ft_putstr("\033[032;32m1\033[0m");
 		}
-		yc++;
+		env->yc++;
 		ft_putstr("\033[032;31m0\033[0m");
 	}
 	ft_putchar('\n');
-	ft_while_x(env, xc, yc, tmpx, tmpy);
-	ft_while_y(env, xc, yc, tmpx, tmpy);
+	ft_while_x(env, env->tmpx, env->tmpy);
+	ft_while_y(env, env->tmpx, env->tmpy);
 	mlx_key_hook(env->win, aff_key, env->mlx);
 	mlx_mouse_hook(env->win, aff_mouse, env->mlx);
 	mlx_loop(env->mlx);

@@ -54,8 +54,10 @@ void	ft_bhm_y(t_env *env, int xstrt, int ystrt, int xend, int yend)
 	}
 }
 
-void	ft_while_x(t_env *env, int xc, int yc, int tmpx, int tmpy)
+void	ft_while_x(t_env *env, int tmpx, int tmpy)
 {
+  int   xc;
+  int   yc;
 	int		tmp2x;
 	int		tmp2y;
 
@@ -66,7 +68,7 @@ void	ft_while_x(t_env *env, int xc, int yc, int tmpx, int tmpy)
 		while (xc + 1 != tmpx)
 		{
 			tmp2x = xc;
-			tmp2y = yc * 20;
+			tmp2y = (yc * 20) - env->tab[yc][xc];
 			if (xc != 0)
 				tmp2x = xc * 20;
 			ft_bhm_x(env, tmp2x, tmp2y, (xc + 1) * 20, yc * 20);
@@ -76,9 +78,11 @@ void	ft_while_x(t_env *env, int xc, int yc, int tmpx, int tmpy)
 	}
 }
 
-void	ft_while_y(t_env *env, int xc, int yc, int tmpx, int tmpy)
+void	ft_while_y(t_env *env, int tmpx, int tmpy)
 {
-	int		tmp2x;
+  int   xc;
+  int   yc;
+  int		tmp2x;
 	int		tmp2y;
 
 	xc = 0;
@@ -87,7 +91,7 @@ void	ft_while_y(t_env *env, int xc, int yc, int tmpx, int tmpy)
 		yc = 0;
 		while (yc + 1 != tmpy)
 		{
-			tmp2y = yc;
+			tmp2y = yc - env->tab[yc][xc];
 			tmp2x = xc * 20;
 			if (yc != 0)
 				tmp2y = yc * 20;
