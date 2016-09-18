@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:21:38 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/18 15:44:26 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/09/18 17:05:05 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	ft_while_y(t_env *env, int tmpx, int tmpy)
 	int		xc;
 	int		yc;
 
-  ft_while_x(env, tmpx, tmpy);
+	ft_while_x(env, tmpx, tmpy);
 	xc = 0;
 	while (xc != tmpx)
 	{

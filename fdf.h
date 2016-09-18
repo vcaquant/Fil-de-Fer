@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:49:27 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/18 15:44:13 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/09/18 17:05:58 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void			ft_bhm_x(t_env *env, int xend, int yend);
 void			ft_bhm_y(t_env *env, int xend, int yend);
 void			ft_while_x(t_env *env, int tmpx, int tmpy);
 void			ft_while_y(t_env *env, int tmpx, int tmpy);
-void 			ft_recup(t_env *env);
-void 			ft_print_points(t_env *env);
+void			ft_recup(t_env *env);
+void			ft_print_points(t_env *env);
 
 #endif

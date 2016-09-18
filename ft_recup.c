@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_recup.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/18 17:02:42 by vcaquant          #+#    #+#             */
+/*   Updated: 2016/09/18 17:04:17 by vcaquant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-void  ft_recup(t_env *env)
+void	ft_recup(t_env *env)
 {
-  env->yc = 0;
-  while ((env->ret = get_next_line((int const)env->fd, &env->line)) > 0)
+	env->yc = 0;
+	while ((env->ret = get_next_line((int const)env->fd, &env->line)) > 0)
 	{
 		env->xc = 0;
 		env->xc2 = 0;
@@ -19,30 +31,30 @@ void  ft_recup(t_env *env)
 		}
 		env->yc++;
 	}
-  env->tmpx = env->xc;
+	env->tmpx = env->xc;
 	env->tmpy = env->yc;
-  ft_print_points(env);
+	ft_print_points(env);
 }
 
-void ft_print_points(t_env *env)
+void	ft_print_points(t_env *env)
 {
-  env->zoom = 20;
-  env->yc = 0;
-  while (env->yc != env->tmpy)
-  {
-    env->xc = 0;
-    while (env->xc != env->tmpx)
-    {
-      env->tmp2x = env->xc;
-      env->tmp2y = (env->yc * env->zoom) - env->tab[env->yc][env->xc];
-      if (env->xc != 0)
-        env->tmp2x = env->xc * env->zoom;
-      if (env->tab[env->yc][env->xc] == 10)
-        mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0x0000FF);
-      else
-        mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0xFFFFFF);
-      env->xc++;
-    }
-    env->yc++;
-  }
+	env->zoom = 20;
+	env->yc = 0;
+	while (env->yc != env->tmpy)
+	{
+		env->xc = 0;
+		while (env->xc != env->tmpx)
+		{
+			env->tmp2x = env->xc;
+			env->tmp2y = (env->yc * env->zoom) - env->tab[env->yc][env->xc];
+			if (env->xc != 0)
+				env->tmp2x = env->xc * env->zoom;
+			if (env->tab[env->yc][env->xc] == 10)
+				mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0x0000FF);
+			else
+				mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0xFFFFFF);
+			env->xc++;
+		}
+		env->yc++;
+	}
 }
