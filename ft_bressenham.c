@@ -81,6 +81,7 @@ void	ft_while_y(t_env *env, int tmpx, int tmpy)
 	int		xc;
 	int		yc;
 
+  ft_while_x(env, tmpx, tmpy);
 	xc = 0;
 	while (xc != tmpx)
 	{

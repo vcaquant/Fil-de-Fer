@@ -58,5 +58,6 @@ void			ft_bhm_x(t_env *env, int xend, int yend);
 void			ft_bhm_y(t_env *env, int xend, int yend);
 void			ft_while_x(t_env *env, int tmpx, int tmpy);
 void			ft_while_y(t_env *env, int tmpx, int tmpy);
+void 			ft_recup(t_env *env);
 
 #endif

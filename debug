@@ -1,0 +1,5 @@
+ft_debug(env->tab, env->xc, env->yc);
+ft_putchar('\n');
+ft_putstr("\033[032;31m0\033[0m");
+ft_putstr("\033[032;32m1\033[0m");
+ft_putchar('\n');
