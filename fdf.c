@@ -36,7 +36,6 @@ int		main(int ac, char **av)
 {
 	t_env	*env;
 	int		test;
-	int		zoom;
 
 	test = ft_error(ac);
 	if (test == -1)
@@ -50,29 +49,10 @@ int		main(int ac, char **av)
 		env->tab[env->i] = malloc(sizeof(**env->tab) * 50);
 		env->i++;
 	}
-	zoom = 20;
 	(void)ac;
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
 	ft_recup(env);
-	env->yc = 0;
-	while (env->yc != env->tmpy)
-	{
-		env->xc = 0;
-		while (env->xc != env->tmpx)
-		{
-			env->tmp2x = env->xc;
-			env->tmp2y = (env->yc * zoom) - env->tab[env->yc][env->xc];
-			if (env->xc != 0)
-				env->tmp2x = env->xc * zoom;
-			if (env->tab[env->yc][env->xc] == 10)
-				mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0x0000FF);
-			else
-				mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0xFFFFFF);
-			env->xc++;
-		}
-		env->yc++;
-	}
 	ft_while_y(env, env->tmpx, env->tmpy);
 	mlx_key_hook(env->win, aff_key, env->mlx);
 	mlx_mouse_hook(env->win, aff_mouse, env->mlx);

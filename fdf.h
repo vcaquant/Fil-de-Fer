@@ -42,6 +42,7 @@ typedef struct	s_env
 
 	int		p;
 	int		i;
+	int		zoom;
 
 	int		tmpx;
 	int		tmpy;
@@ -59,5 +60,6 @@ void			ft_bhm_y(t_env *env, int xend, int yend);
 void			ft_while_x(t_env *env, int tmpx, int tmpy);
 void			ft_while_y(t_env *env, int tmpx, int tmpy);
 void 			ft_recup(t_env *env);
+void 			ft_print_points(t_env *env);
 
 #endif
