@@ -6,49 +6,49 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:21:38 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/17 03:31:44 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/09/18 15:44:26 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_bhm_x(t_env *env, int xstrt, int ystrt, int xend, int yend)
+void	ft_bhm_x(t_env *env, int xend, int yend)
 {
 	int		dx;
 	int		dy;
 	int		e;
 
-	e = xend - xstrt;
+	e = xend - env->tmp2x;
 	dx = e * 2;
-	dy = (yend - ystrt) * 2;
-	while (xstrt <= xend)
+	dy = (yend - env->tmp2y) * 2;
+	while (env->tmp2x <= xend)
 	{
-		mlx_pixel_put(env->mlx, env->win, xstrt, ystrt, 0x00FFFFFF);
-		xstrt++;
+		mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0x00FFFFFF);
+		env->tmp2x++;
 		if ((e = e - dy) <= 0)
 		{
-			ystrt++;
+			env->tmp2y++;
 			e = e + dx;
 		}
 	}
 }
 
-void	ft_bhm_y(t_env *env, int xstrt, int ystrt, int xend, int yend)
+void	ft_bhm_y(t_env *env, int xend, int yend)
 {
 	int		dx;
 	int		dy;
 	int		e;
 
-	e = yend - ystrt;
+	e = yend - env->tmp2y;
 	dy = e * 2;
-	dx = (xend - xstrt) * 2;
-	while (ystrt <= yend)
+	dx = (xend - env->tmp2x) * 2;
+	while (env->tmp2y <= yend)
 	{
-		mlx_pixel_put(env->mlx, env->win, xstrt, ystrt, 0x00FFFFFF);
-		ystrt++;
+		mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0x00FFFFFF);
+		env->tmp2y++;
 		if ((e = e - dx) <= 0)
 		{
-			xstrt++;
+			env->tmp2x++;
 			e = e + dy;
 		}
 	}
@@ -56,10 +56,8 @@ void	ft_bhm_y(t_env *env, int xstrt, int ystrt, int xend, int yend)
 
 void	ft_while_x(t_env *env, int tmpx, int tmpy)
 {
-  int   xc;
-  int   yc;
-	int		tmp2x;
-	int		tmp2y;
+	int		xc;
+	int		yc;
 
 	yc = 0;
 	while (yc != tmpy)
@@ -67,11 +65,11 @@ void	ft_while_x(t_env *env, int tmpx, int tmpy)
 		xc = 0;
 		while (xc + 1 != tmpx)
 		{
-			tmp2x = xc;
-			tmp2y = (yc * 20) - env->tab[yc][xc];
+			env->tmp2x = xc;
+			env->tmp2y = (yc * 20) - env->tab[yc][xc];
 			if (xc != 0)
-				tmp2x = xc * 20;
-			ft_bhm_x(env, tmp2x, tmp2y, (xc + 1) * 20, yc * 20);
+				env->tmp2x = xc * 20;
+			ft_bhm_x(env, (xc + 1) * 20, yc * 20);
 			xc++;
 		}
 		yc++;
@@ -80,10 +78,8 @@ void	ft_while_x(t_env *env, int tmpx, int tmpy)
 
 void	ft_while_y(t_env *env, int tmpx, int tmpy)
 {
-  int   xc;
-  int   yc;
-  int		tmp2x;
-	int		tmp2y;
+	int		xc;
+	int		yc;
 
 	xc = 0;
 	while (xc != tmpx)
@@ -91,11 +87,11 @@ void	ft_while_y(t_env *env, int tmpx, int tmpy)
 		yc = 0;
 		while (yc + 1 != tmpy)
 		{
-			tmp2y = yc - env->tab[yc][xc];
-			tmp2x = xc * 20;
+			env->tmp2y = yc - env->tab[yc][xc];
+			env->tmp2x = xc * 20;
 			if (yc != 0)
-				tmp2y = yc * 20;
-			ft_bhm_y(env, tmp2x, tmp2y, xc * 20, (yc + 1) * 20);
+				env->tmp2y = yc * 20;
+			ft_bhm_y(env, xc * 20, (yc + 1) * 20);
 			yc++;
 		}
 		xc++;
