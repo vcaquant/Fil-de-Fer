@@ -49,7 +49,6 @@ int		main(int ac, char **av)
 		env->tab[env->i] = malloc(sizeof(**env->tab) * 50);
 		env->i++;
 	}
-	(void)ac;
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
 	ft_recup(env);
