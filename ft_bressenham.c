@@ -18,12 +18,14 @@ void	ft_bhm_x(t_env *env, int xend, int yend)
 	int		dy;
 	int		e;
 
+	env->iso_x = 1;
+	env->iso_y = 1;
 	e = xend - env->tmp2x;
 	dx = e * 2;
 	dy = (yend - env->tmp2y) * 2;
 	while (env->tmp2x <= xend)
 	{
-		mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0x00FFFFFF);
+		ft_color(env);
 		env->tmp2x++;
 		if ((e = e - dy) <= 0)
 		{
@@ -44,7 +46,7 @@ void	ft_bhm_y(t_env *env, int xend, int yend)
 	dx = (xend - env->tmp2x) * 2;
 	while (env->tmp2y <= yend)
 	{
-		mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0x00FFFFFF);
+		ft_color(env);
 		env->tmp2y++;
 		if ((e = e - dx) <= 0)
 		{
@@ -54,47 +56,43 @@ void	ft_bhm_y(t_env *env, int xend, int yend)
 	}
 }
 
-void	ft_while_x(t_env *env, int tmpx, int tmpy)
+void	ft_while_x(t_env *env)
 {
-	int		xc;
-	int		yc;
-
-	yc = 0;
-	while (yc != tmpy)
+	env->yc = 0;
+	while (env->yc != env->tmpy)
 	{
-		xc = 0;
-		while (xc + 1 != tmpx)
+		env->xc = 0;
+		while (env->xc + 1 != env->tmpx)
 		{
-			env->tmp2x = xc;
-			env->tmp2y = (yc * 20) - env->tab[yc][xc];
-			if (xc != 0)
-				env->tmp2x = xc * 20;
-			ft_bhm_x(env, (xc + 1) * 20, yc * 20);
-			xc++;
+			env->tmp2x = env->xc;
+			env->tmp2y = (env->yc * 20) - env->tab[env->yc][env->xc];
+			if (env->xc != 0)
+				env->tmp2x = env->xc * 20;
+			ft_bhm_x(env, (env->xc + 1) * 20, env->yc * 20);
+			//ft_bhm_x(env, env->tmp2x + 1, env->tmp2y);
+			env->xc++;
 		}
-		yc++;
+		env->yc++;
 	}
 }
 
-void	ft_while_y(t_env *env, int tmpx, int tmpy)
+void	ft_while_y(t_env *env)
 {
-	int		xc;
-	int		yc;
-
-	ft_while_x(env, tmpx, tmpy);
-	xc = 0;
-	while (xc != tmpx)
+	ft_while_x(env);
+	env->xc = 0;
+	while (env->xc != env->tmpx)
 	{
-		yc = 0;
-		while (yc + 1 != tmpy)
+		env->yc = 0;
+		while (env->yc + 1 != env->tmpy)
 		{
-			env->tmp2y = yc - env->tab[yc][xc];
-			env->tmp2x = xc * 20;
-			if (yc != 0)
-				env->tmp2y = yc * 20;
-			ft_bhm_y(env, xc * 20, (yc + 1) * 20);
-			yc++;
+			env->tmp2y = env->yc - env->tab[env->yc][env->xc];
+			env->tmp2x = env->xc * 20;
+			if (env->yc != 0)
+				env->tmp2y = env->yc * 20;
+			ft_bhm_y(env, env->xc * 20, (env->yc + 1) * 20);
+			//ft_bhm_y(env, env->tmp2x, env->tmp2y + 1);
+			env->yc++;
 		}
-		xc++;
+		env->xc++;
 	}
 }

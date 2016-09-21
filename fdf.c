@@ -52,8 +52,9 @@ int		main(int ac, char **av)
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
 	ft_recup(env);
-	ft_while_y(env, env->tmpx, env->tmpy);
-	mlx_key_hook(env->win, aff_key, env->mlx);
-	mlx_mouse_hook(env->win, aff_mouse, env->mlx);
+	ft_while_y(env);
+	mlx_key_hook(env->win, aff_key, env);
+	//mlx_expose_hook(env->win, aff_exp, env->mlx);
+	mlx_mouse_hook(env->win, aff_mouse, env);
 	mlx_loop(env->mlx);
 }

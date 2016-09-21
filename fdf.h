@@ -13,8 +13,14 @@
 #ifndef FDF_H
 # define FDF_H
 
-# define W_X 600
-# define W_Y 450
+# define W_X 1100
+# define W_Y 800
+
+# define black 0x000000
+# define white 0xFFFFFF
+# define azur 0x74D0F1
+# define azur_f 0x1E7FCB
+# define absinthe 0x7FDD4C
 
 # include "libft/libft.h"
 # include "minilibx_macos/mlx.h"
@@ -43,6 +49,8 @@ typedef struct	s_env
 	int		p;
 	int		i;
 	int		zoom;
+	double 	iso_x;
+	double	iso_y;
 
 	int		tmpx;
 	int		tmpy;
@@ -53,13 +61,15 @@ typedef struct	s_env
 }				t_env;
 
 int				ft_error(int ac);
-int				aff_key(int keycode);
+int				aff_key(int keycode, t_env *env);
 int				aff_mouse(int mousecode);
+int 			aff_exp(t_env *env);
 void			ft_bhm_x(t_env *env, int xend, int yend);
 void			ft_bhm_y(t_env *env, int xend, int yend);
-void			ft_while_x(t_env *env, int tmpx, int tmpy);
-void			ft_while_y(t_env *env, int tmpx, int tmpy);
+void			ft_while_x(t_env *env);
+void			ft_while_y(t_env *env);
 void			ft_recup(t_env *env);
 void			ft_print_points(t_env *env);
+void 			ft_color(t_env *env);
 
 #endif

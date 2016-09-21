@@ -49,10 +49,7 @@ void	ft_print_points(t_env *env)
 			env->tmp2y = (env->yc * env->zoom) - env->tab[env->yc][env->xc];
 			if (env->xc != 0)
 				env->tmp2x = env->xc * env->zoom;
-			if (env->tab[env->yc][env->xc] == 10)
-				mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0x0000FF);
-			else
-				mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, 0xFFFFFF);
+			//mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, white);
 			env->xc++;
 		}
 		env->yc++;
