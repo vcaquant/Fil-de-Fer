@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:46:57 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/16 16:47:59 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/09/21 18:45:52 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,16 @@
 
 int		aff_key(int keycode, t_env *env)
 {
-  ft_putstr("touche");
+	ft_putstr("touche");
 	ft_putnbr(keycode);
 	ft_putchar('\n');
 	if (keycode == 13 || keycode == 53)
 		exit(EXIT_SUCCESS);
-  if (keycode == 12)
-  {
-    env->iso_x = env->iso_x + 10;
-  }
+	if (keycode == 12)
+	{
+		env->iso_x = env->iso_x + 10;
+	}
 	return (0);
-}
-
-int   aff_exp(t_env *env)
-{
-  env->yc = env->yc + 20;
-  return (0);
 }
 
 int		aff_mouse(int mousecode)
@@ -42,14 +36,14 @@ int		aff_mouse(int mousecode)
 	return (0);
 }
 
-void   ft_color(t_env *env)
+void	ft_color(t_env *env)
 {
-  if (env->tab[env->yc][env->xc] >= 5 && env->tab[env->yc][env->xc] <= 15)
-    mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), azur);
-  else if (env->tab[env->yc][env->xc] >= 16 && env->tab[env->yc][env->xc] <= 25)
-    mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), azur_f);
-  else if (env->tab[env->yc][env->xc] >= 26 && env->tab[env->yc][env->xc] <= 35)
-    mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), absinthe);
-  else
-    mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), white);
+	if (env->tab[env->yc][env->xc] >= 5 && env->tab[env->yc][env->xc] <= 15)
+		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), AZUR);
+	else if (env->tab[env->yc][env->xc] >= 16 && env->tab[env->yc][env->xc] <= 25)
+		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), AZUR_F);
+	else if (env->tab[env->yc][env->xc] >= 26 && env->tab[env->yc][env->xc] <= 35)
+		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), ABSINTHE);
+	else
+		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), WHITE);
 }

@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:19:06 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/18 15:46:56 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/09/21 18:43:55 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int		main(int ac, char **av)
 	ft_recup(env);
 	ft_while_y(env);
 	mlx_key_hook(env->win, aff_key, env);
-	//mlx_expose_hook(env->win, aff_exp, env->mlx);
 	mlx_mouse_hook(env->win, aff_mouse, env);
 	mlx_loop(env->mlx);
 }

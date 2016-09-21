@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:21:38 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/18 17:05:05 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/09/21 15:40:30 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_bhm_x(t_env *env, int xend, int yend)
 	int		dy;
 	int		e;
 
-	env->iso_x = 1;
-	env->iso_y = 1;
+	env->iso_x = 1.50;
+	env->iso_y = 1.50;
 	e = xend - env->tmp2x;
 	dx = e * 2;
 	dy = (yend - env->tmp2y) * 2;
