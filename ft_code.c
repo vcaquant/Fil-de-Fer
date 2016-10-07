@@ -23,6 +23,7 @@ int		aff_key(int keycode, t_env *env)
 	{
 		env->iso_x = env->iso_x + 10;
 	}
+	mlx_loop(env->mlx);
 	return (0);
 }
 
@@ -39,11 +40,11 @@ int		aff_mouse(int mousecode)
 void	ft_color(t_env *env)
 {
 	if (env->tab[env->yc][env->xc] >= 5 && env->tab[env->yc][env->xc] <= 15)
-		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), AZUR);
+		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y)) + FIX_X, ((env->tmp2y + env->tmp2x) / env->iso_y) + FIX_Y, AZUR);
 	else if (env->tab[env->yc][env->xc] >= 16 && env->tab[env->yc][env->xc] <= 25)
-		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), AZUR_F);
+		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y)) + FIX_X, ((env->tmp2y + env->tmp2x) / env->iso_y) + FIX_Y, AZUR_F);
 	else if (env->tab[env->yc][env->xc] >= 26 && env->tab[env->yc][env->xc] <= 35)
-		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), ABSINTHE);
+		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y)) + FIX_X, ((env->tmp2y + env->tmp2x) / env->iso_y) + FIX_Y, ABSINTHE);
 	else
-		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y) * env->iso_x), ((env->tmp2y + env->tmp2x) * env->iso_y), WHITE);
+		mlx_pixel_put(env->mlx, env->win, ((env->tmp2x - env->tmp2y)) + FIX_X, ((env->tmp2y + env->tmp2x) / env->iso_y) + FIX_Y, WHITE);
 }

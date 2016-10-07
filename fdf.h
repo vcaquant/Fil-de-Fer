@@ -13,12 +13,14 @@
 #ifndef FDF_H
 # define FDF_H
 
-# define W_X 1600
-# define W_Y 1200
+# define W_X 1000
+# define W_Y 600
+# define FIX_Y 80
+# define FIX_X 450
 
 # define BLACK		0x000000
 # define WHITE		0xFFFFFF
-# define AZUR		0x74D0F1
+# define AZUR			0x74D0F1
 # define AZUR_F		0x1E7FCB
 # define ABSINTHE	0x7FDD4C
 
@@ -52,12 +54,15 @@ typedef struct	s_env
 	double	iso_x;
 	double	iso_y;
 
-	int		tmpx;
-	int		tmpy;
+	int		endx;
+	int		endy;
+	int 	xend;
+	int		yend;
 	int		tmp2x;
 	int		tmp2y;
 
 	char	*line;
+	int 	stock[2];
 }				t_env;
 
 int				ft_error(int ac);
