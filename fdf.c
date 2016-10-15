@@ -43,12 +43,12 @@ int		main(int ac, char **av)
 	if (!ft_init_struct(&env, av))
 		return (-1);
 	env->i = 0;
-	env->tab = malloc(sizeof(*env->tab) * 20);
-	while (env->i < 20)
+	env->tab = (int**)malloc(sizeof(int*) * (env->i + 1));
+	/*while (env->i < 20)
 	{
 		env->tab[env->i] = malloc(sizeof(**env->tab) * 50);
 		env->i++;
-	}
+	}*/
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
 	ft_recup(env);

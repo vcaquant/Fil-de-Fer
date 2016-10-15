@@ -14,24 +14,35 @@
 
 void	ft_recup(t_env *env)
 {
+	int		**tmp;
+
 	env->yc = 0;
 	while ((env->ret = get_next_line((int const)env->fd, &env->line)) > 0)
 	{
-		env->xc = 0;
+		tmp = env->tab;
+		//if (env->yc != 0)
+			env->tab = (int**)malloc(sizeof(int*) * (env->yc + 1));
+		ft_memcpy(env->tab, tmp, sizeof(int*) * (env->yc));
+		env->tab[env->yc] = (int*)malloc(sizeof(int) * (ft_count_x(env->line) + 1));
+		//env->xc = 0;
 		env->xc2 = 0;
-		while (env->line[env->xc2])
-		{
-			while (env->line[env->xc2] == ' ')
+		//while (env->line[env->xc2])
+		//{
+		env->tab[env->yc++] = ft_putline(env->line);
+			/*while (env->line[env->xc2] == ' ')
 				env->xc2++;
-			env->tab[env->yc][env->xc] = ft_atoi(&env->line[env->xc2]);
-			env->xc++;
-			env->xc2++;
-			if (env->line[env->xc2] >= '0' && env->line[env->xc2] <= '9')
-				env->xc2++;
-		}
+			if ((env->line[env->xc2] <= '9' && env->line[env->xc2] >= '0') || env->line[env->xc2] == '-')
+			{
+				env->tab[env->yc][env->xc] = ft_atoi(&env->line[env->xc2]);
+				env->xc++;
+			}
+			while (env->line[env->xc2] != ' ' && env->line[env->xc2] != '\0')
+				env->xc2++;*/
+		//}
 		env->yc++;
+		free(tmp);
 	}
-	env->endx = env->xc;
+	env->endx = ft_count_x(env->line);
 	env->endy = env->yc;
 	ft_print_points(env);
 }

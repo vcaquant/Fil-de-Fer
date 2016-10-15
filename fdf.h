@@ -53,6 +53,8 @@ typedef struct	s_env
 	int		zoom;
 	double	iso_x;
 	double	iso_y;
+	int 		fix_x;
+	int 		fix_y;
 
 	int		endx;
 	int		endy;
@@ -69,6 +71,8 @@ int				ft_error(int ac);
 int				aff_key(int keycode, t_env *env);
 int				aff_mouse(int mousecode);
 int				aff_exp(t_env *env);
+int				ft_count_x(char *str);
+int				*ft_putline(char *str);
 void			ft_bhm_x(t_env *env, int xend, int yend);
 void			ft_bhm_y(t_env *env, int xend, int yend);
 void			ft_while_x(t_env *env);

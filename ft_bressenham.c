@@ -23,19 +23,20 @@ void	ft_bhm_x(t_env *env, int xend, int yend)
 	e = xend - env->tmp2x;
 	dx = e * 2;
 	dy = (yend - env->tmp2y) * 2;
+	if (env->yend < env->tmp2y)
+		dy = (env->tmp2y - yend) * 2;
 	while (env->tmp2x <= xend)
 	{
-		//if (env->tab[env->tmp2y][env->tmp2x] == 10 && env->tab[yend][xend] == 10)
-			//yend = yend - env->tab[yend][xend];
 		ft_color(env);
 		env->tmp2x++;
 		if ((e = e - dy) <= 0)
 		{
-			env->tmp2y++;
+			if (env->yend > env->tmp2y)
+				env->tmp2y++;
+			else
+				env->tmp2y--;
 			e = e + dx;
 		}
-		env->stock[0] = xend;
-		env->stock[1] = yend;
 	}
 }
 
@@ -48,19 +49,20 @@ void	ft_bhm_y(t_env *env, int xend, int yend)
 	e = yend - env->tmp2y;
 	dy = e * 2;
 	dx = (xend - env->tmp2x) * 2;
+	if (env->xend < env->tmp2x)
+		dx = (env->tmp2x - xend) * 2;
 	while (env->tmp2y <= yend)
 	{
-		//if (env->tab[env->tmp2y][env->tmp2x] == 10 && env->tab[yend][xend])
-			//xend = xend - env->tab[env->tmp2y][env->tmp2x];
 		ft_color(env);
 		env->tmp2y++;
 		if ((e = e - dx) <= 0)
 		{
-			env->tmp2x++;
+			if (env->xend > env->tmp2x)
+				env->tmp2x++;
+			else
+				env->tmp2x--;
 			e = e + dy;
 		}
-		env->stock[0] = xend;
-		env->stock[1] = yend;
 	}
 }
 
@@ -74,16 +76,19 @@ void	ft_while_x(t_env *env)
 		env->stock[0] = env->xc;
 		while (env->xc + 1 != env->endx)
 		{
+			env->yend = env->yc * 30;
+			env->xend = (env->xc + 1) * 30;
 			env->tmp2x = env->xc - env->tab[env->yc][env->xc];
 			env->tmp2y = env->yc * 30 - env->tab[env->yc][env->xc];
-			env->xend = ((env->xc + 1) * 30); //- env->tab[env->yc][env->xc];
-			env->yend = (env->yc * 30); // - env->tab[env->yc][env->xc];
 			if (env->xc != 0)
 				env->tmp2x = env->xc * 30 - env->tab[env->yc][env->xc];
 			if (env->tab[env->yc][env->xc + 1] == env->tab[env->yc][env->xc] && env->tab[env->yc][env->xc] != 0)
 				env->yend = ((env->yc + 1) * 30) - env->tab[env->yc][env->xc] * 4;
 			else if (env->tab[env->yc][env->xc + 1] > env->tab[env->yc][env->xc])
-				env->yend = ((env->yc - 1) * 30) - env->tab[env->yc][env->xc];
+			{
+				env->yend = (env->yc * 30) - env->tab[env->yc][env->xc + 1];
+				env->xend = ((env->xc + 1) * 30) - env->tab[env->yc][env->xc + 1];
+			}
 			ft_bhm_x(env, env->xend, env->yend);
 			env->xc++;
 		}
@@ -102,16 +107,19 @@ void	ft_while_y(t_env *env)
 		env->stock[1] = env->yc;
 		while (env->yc + 1 != env->endy)
 		{
-			env->xend = (env->xc * 30);
-			env->yend = ((env->yc + 1) * 30);
+			env->xend = env->xc * 30;
+			env->yend = (env->yc + 1) * 30;
 			env->tmp2y = env->yc - env->tab[env->yc][env->xc];
 			env->tmp2x = env->xc * 30 - env->tab[env->yc][env->xc];
 			if (env->yc != 0)
 				env->tmp2y = env->yc * 30 - env->tab[env->yc][env->xc];
 			if (env->tab[env->yc + 1][env->xc] == env->tab[env->yc][env->xc] && env->tab[env->yc][env->xc] != 0)
-				env->xend = ((env->xc + 1) * 20) - env->tab[env->yc][env->xc] * 4;
+				env->xend = ((env->xc + 1) * 30) - env->tab[env->yc][env->xc] * 4;
 			else if (env->tab[env->yc + 1][env->xc] > env->tab[env->yc][env->xc])
-				env->xend = ((env->xc - 1) * 30) - env->tab[env->yc][env->xc];
+			{
+				env->yend = ((env->yc + 1) * 30) - env->tab[env->yc + 1][env->xc];
+				env->xend = ((env->xc) * 30) - env->tab[env->yc + 1][env->xc];
+			}
 			ft_bhm_y(env, env->xend, env->yend);
 			env->yc++;
 		}
@@ -121,6 +129,5 @@ void	ft_while_y(t_env *env)
 
 /*void 	ft_check(t_env *env)
 {
-	if (env->tab[env->yc][env->xc] != 0 && env->tab[env->yc][env->xc + 1] != env->tab[env->yc][env->xc])
-	else if (env->tab[env->yc][env->xc] != 0 && env->tab[env->yc][env->xc + 1] != env->tab[env->yc][env->xc])
+
 }*/
