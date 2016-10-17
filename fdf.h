@@ -44,6 +44,8 @@ typedef struct	s_env
 	int		ret;
 	int		fd;
 
+	int 	x;
+	int		y;
 	int		xc;
 	int		xc2;
 	int		yc;
@@ -64,7 +66,6 @@ typedef struct	s_env
 	int		tmp2y;
 
 	char	*line;
-	int 	stock[2];
 }				t_env;
 
 int				ft_error(int ac);
@@ -72,7 +73,9 @@ int				aff_key(int keycode, t_env *env);
 int				aff_mouse(int mousecode);
 int				aff_exp(t_env *env);
 int				ft_count_x(char *str);
-int				*ft_putline(char *str);
+int				ft_init_tab(t_env *env, char **av);
+int				ft_map_not_valid(void);
+int				*ft_recupline(char *str);
 void			ft_bhm_x(t_env *env, int xend, int yend);
 void			ft_bhm_y(t_env *env, int xend, int yend);
 void			ft_while_x(t_env *env);

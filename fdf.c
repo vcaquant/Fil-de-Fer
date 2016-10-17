@@ -43,12 +43,14 @@ int		main(int ac, char **av)
 	if (!ft_init_struct(&env, av))
 		return (-1);
 	env->i = 0;
-	env->tab = (int**)malloc(sizeof(int*) * (env->i + 1));
-	/*while (env->i < 20)
+	if (ft_init_tab(env, av) == -1)
+		return (ft_map_not_valid());
+	env->tab = (int**)malloc(sizeof(int*) * (env->y + 1));
+	while (env->i < env->y)
 	{
-		env->tab[env->i] = malloc(sizeof(**env->tab) * 50);
+		env->tab[env->i] = (int*)malloc(sizeof(int) * (env->x + 1));
 		env->i++;
-	}*/
+	}
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
 	ft_recup(env);

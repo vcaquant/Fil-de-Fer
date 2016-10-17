@@ -12,24 +12,48 @@
 
 #include "fdf.h"
 
+int			*ft_recupline(char *str)
+{
+	int *tab;
+	int columns;
+	int i;
+  int j;
+
+  j = 0;
+	if (!str || str[j] == '\n' || str[j] == '\0')
+		return (NULL);
+	columns = ft_count_x(str);
+	if (str[j] == '\n' || columns == 0)
+		return (NULL);
+	tab = (int*)malloc(sizeof(int) * (columns + 1));
+	i = 0;
+	//tab[i++] = columns;
+	while (str[j] != '\0' && str[j] != '\n')
+	{
+    while (str[j] == ' ')
+			j++;
+		if ((str[j] <= '9' && str[j] >= '0') || str[j] == '-')
+		{
+			tab[i] = ft_atoi(&str[j]);
+			i++;
+		}
+		while (str[j] != '\0' && str[j] != '\n' && str[j] != ' ')
+			j++;
+	}
+	return (tab);
+}
+
 void	ft_recup(t_env *env)
 {
-	int		**tmp;
-
 	env->yc = 0;
 	while ((env->ret = get_next_line((int const)env->fd, &env->line)) > 0)
 	{
-		tmp = env->tab;
-		//if (env->yc != 0)
-			env->tab = (int**)malloc(sizeof(int*) * (env->yc + 1));
-		ft_memcpy(env->tab, tmp, sizeof(int*) * (env->yc));
-		env->tab[env->yc] = (int*)malloc(sizeof(int) * (ft_count_x(env->line) + 1));
-		//env->xc = 0;
+		env->xc = 0;
 		env->xc2 = 0;
-		//while (env->line[env->xc2])
-		//{
-		env->tab[env->yc++] = ft_putline(env->line);
-			/*while (env->line[env->xc2] == ' ')
+		//env->tab[env->yc] = ft_recupline(env->line);
+		while (env->line[env->xc2])
+		{
+			while (env->line[env->xc2] == ' ')
 				env->xc2++;
 			if ((env->line[env->xc2] <= '9' && env->line[env->xc2] >= '0') || env->line[env->xc2] == '-')
 			{
@@ -37,14 +61,13 @@ void	ft_recup(t_env *env)
 				env->xc++;
 			}
 			while (env->line[env->xc2] != ' ' && env->line[env->xc2] != '\0')
-				env->xc2++;*/
-		//}
+				env->xc2++;
+		}
 		env->yc++;
-		free(tmp);
+		//env->endx = ft_count_x(env->line);
 	}
-	env->endx = ft_count_x(env->line);
 	env->endy = env->yc;
-	ft_print_points(env);
+//	ft_print_points(env);
 }
 
 void	ft_print_points(t_env *env)

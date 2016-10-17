@@ -69,11 +69,9 @@ void	ft_bhm_y(t_env *env, int xend, int yend)
 void	ft_while_x(t_env *env)
 {
 	env->yc = 0;
-	env->stock[1] = env->yc;
 	while (env->yc != env->endy)
 	{
 		env->xc = 0;
-		env->stock[0] = env->xc;
 		while (env->xc + 1 != env->endx)
 		{
 			env->yend = env->yc * 30;
@@ -100,11 +98,9 @@ void	ft_while_y(t_env *env)
 {
 	ft_while_x(env);
 	env->xc = 0;
-	env->stock[0] = env->xc;
 	while (env->xc != env->endx)
 	{
 		env->yc = 0;
-		env->stock[1] = env->yc;
 		while (env->yc + 1 != env->endy)
 		{
 			env->xend = env->xc * 30;
@@ -126,8 +122,3 @@ void	ft_while_y(t_env *env)
 		env->xc++;
 	}
 }
-
-/*void 	ft_check(t_env *env)
-{
-
-}*/

@@ -1,5 +1,33 @@
 #include "fdf.h"
 
+int   ft_init_tab(t_env *env, char **av)
+{
+  char   *line;
+  int   ret;
+  int   i;
+  int   x;
+  int   y;
+  int   fd;
+
+  i = 0;
+  y = 0;
+  fd = open(av[1], O_RDONLY);
+  while ((ret = get_next_line((int const)fd, &line)) > 0)
+  {
+    x = 0;
+    x = ft_count_x(line);
+    env->endx = x;
+    if (y == 0)
+      env->x = x;
+    if (x != env->x)
+      return (-1);
+    y++;
+  }
+  env->y = y;
+  close(fd);
+  return (1);
+}
+
 int   ft_count_x(char *str)
 {
     int   count;
@@ -15,30 +43,4 @@ int   ft_count_x(char *str)
         str++;
     }
     return (count);
-}
-
-int			*ft_putline(char *str)
-{
-	int *tab;
-	int columns;
-	int i;
-
-	if (!str || *str == '\n' || *str == '\0')
-		return (NULL);
-	columns = ft_count_x(str);
-	if (*str == '\n' || columns == 0)
-		return (NULL);
-	tab = (int*)malloc(sizeof(int) * (columns + 1));
-	i = 0;
-	tab[i++] = columns;
-	while (*str != '\0' && *str != '\n')
-	{
-    while (*str == ' ')
-			str++;
-		if ((*str <= '9' && *str >= '0') || *str == '-')
-			tab[i++] = ft_atoi(str);
-		while (*str != '\0' && *str != '\n' && *str != ' ')
-			str++;
-	}
-	return (tab);
 }

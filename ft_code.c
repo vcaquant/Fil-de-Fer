@@ -21,7 +21,7 @@ int		aff_key(int keycode, t_env *env)
 		exit(EXIT_SUCCESS);
 	if (keycode == 12)
 	{
-		env->fix_x += 100;
+		env->fix_x--;
 	}
 	return (0);
 }

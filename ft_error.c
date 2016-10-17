@@ -21,3 +21,9 @@ int	ft_error(int ac)
 	}
 	return (0);
 }
+
+int		ft_map_not_valid(void)
+{
+	ft_putstr("It's not a valid map\n");
+	return (-1);
+}
