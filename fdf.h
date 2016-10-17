@@ -38,34 +38,34 @@
 
 typedef struct	s_env
 {
-	void	*mlx;
-	void	*win;
-	int		**tab;
-	int		ret;
-	int		fd;
+	void		*mlx;
+	void		*win;
+	int			**tab;
+	int			ret;
+	int			fd;
 
-	int 	x;
-	int		y;
-	int		xc;
-	int		xc2;
-	int		yc;
+	int 		x;
+	int			y;
+	int			xc;
+	int			xc2;
+	int			yc;
 
-	int		p;
-	int		i;
-	int		zoom;
+	int			p;
+	int			i;
+	int			zoom;
 	double	iso_x;
 	double	iso_y;
 	int 		fix_x;
 	int 		fix_y;
 
-	int		endx;
-	int		endy;
-	int 	xend;
-	int		yend;
-	int		tmp2x;
-	int		tmp2y;
+	int			endx;
+	int			endy;
+	int 		xend;
+	int			yend;
+	int			tmp2x;
+	int			tmp2y;
 
-	char	*line;
+	char		*line;
 }				t_env;
 
 int				ft_error(int ac);

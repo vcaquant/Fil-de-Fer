@@ -59,6 +59,7 @@ void	ft_recup(t_env *env)
 			{
 				env->tab[env->yc][env->xc] = ft_atoi(&env->line[env->xc2]);
 				env->xc++;
+				printf("%d\n", env->tab[env->yc][env->xc]);
 			}
 			while (env->line[env->xc2] != ' ' && env->line[env->xc2] != '\0')
 				env->xc2++;

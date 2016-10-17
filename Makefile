@@ -4,14 +4,14 @@ SRC = 			fdf.c \
 						ft_code.c \
 						ft_bressenham.c \
 						ft_recup.c \
-						count.c \
+						ft_count.c \
 						ft_error.c
 
 OBJ = 			fdf.o \
 						ft_code.o \
 						ft_bressenham.o \
 						ft_recup.o \
-						count.o \
+						ft_count.o \
 						ft_error.o
 
 HEADER =		./libft/libft.h\

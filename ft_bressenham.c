@@ -20,6 +20,8 @@ void	ft_bhm_x(t_env *env, int xend, int yend)
 
 	env->iso_x = 2;
 	env->iso_y = 2;
+	printf("%s\n", "salut");
+	
 	e = xend - env->tmp2x;
 	dx = e * 2;
 	dy = (yend - env->tmp2y) * 2;

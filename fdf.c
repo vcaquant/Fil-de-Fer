@@ -15,11 +15,13 @@
 int		ft_init_struct(t_env **env, char **av)
 {
 	int		i;
+	char	*str;
 
 	i = 0;
+	str = av[1];
 	if (!(*env = (t_env*)malloc(sizeof(t_env))))
 		return (0);
-	(*env)->fd = open(av[1], O_RDONLY);
+	//(*env)->fd = open(av[1], O_RDONLY);
 	return (1);
 }
 
@@ -45,6 +47,7 @@ int		main(int ac, char **av)
 	env->i = 0;
 	if (ft_init_tab(env, av) == -1)
 		return (ft_map_not_valid());
+	env->fd = open(av[1], O_RDONLY);
 	env->tab = (int**)malloc(sizeof(int*) * (env->y + 1));
 	while (env->i < env->y)
 	{
