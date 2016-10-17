@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:21:38 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/21 15:40:30 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/10/17 16:46:10 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_bhm_x(t_env *env, int xend, int yend)
 		dy = (env->tmp2y - yend) * 2;
 	while (env->tmp2x <= xend)
 	{
-		//ft_color(env);
+		ft_color(env);
 		env->tmp2x++;
 		if ((e = e - dy) <= 0)
 		{
@@ -53,7 +53,7 @@ void	ft_bhm_y(t_env *env, int xend, int yend)
 		dx = (env->tmp2x - xend) * 2;
 	while (env->tmp2y <= yend)
 	{
-		//ft_color(env);
+		ft_color(env);
 		env->tmp2y++;
 		if ((e = e - dx) <= 0)
 		{
