@@ -35,6 +35,7 @@ int		ft_init_tab(t_env *env, char **av)
 		y++;
 	}
 	env->y = y;
+    printf("x = %d et y = %d\n", env->y, env->x);
 	close(env->fd);
 	return (1);
 }
@@ -42,16 +43,18 @@ int		ft_init_tab(t_env *env, char **av)
 int		ft_count_x(char *str)
 {
 	int		count;
+    int     x;
 
 	count = 0;
-	while (*str != '\n' && *str != '\0')
+    x = 0;
+	while (str[x] != '\n' && str[x] != '\0')
 	{
-		while (*str == ' ')
-			str++;
-		if ((*str <= '9' && *str >= '0') || *str == '-')
+		while (str[x] == ' ')
+			x++;
+		if ((str[x] <= '9' && str[x] >= '0') || str[x] == '-')
 			count++;
-		while (*str != '\0' && *str != ' ' && *str != '\n')
-			str++;
+		while (str[x] != '\0' && str[x] != ' ' && str[x] != '\n')
+			x++;
 	}
 	return (count);
 }

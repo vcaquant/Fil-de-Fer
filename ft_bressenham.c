@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:21:38 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/17 14:26:04 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/09/21 15:40:30 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_bhm_x(t_env *env, int xend, int yend)
 
 	env->iso_x = 2;
 	env->iso_y = 2;
-	printf("%s\n", "salut");
 	e = xend - env->tmp2x;
 	dx = e * 2;
 	dy = (yend - env->tmp2y) * 2;
@@ -28,7 +27,7 @@ void	ft_bhm_x(t_env *env, int xend, int yend)
 		dy = (env->tmp2y - yend) * 2;
 	while (env->tmp2x <= xend)
 	{
-		ft_color(env);
+		//ft_color(env);
 		env->tmp2x++;
 		if ((e = e - dy) <= 0)
 		{
@@ -54,7 +53,7 @@ void	ft_bhm_y(t_env *env, int xend, int yend)
 		dx = (env->tmp2x - xend) * 2;
 	while (env->tmp2y <= yend)
 	{
-		ft_color(env);
+		//ft_color(env);
 		env->tmp2y++;
 		if ((e = e - dx) <= 0)
 		{
@@ -70,10 +69,10 @@ void	ft_bhm_y(t_env *env, int xend, int yend)
 void	ft_while_x(t_env *env)
 {
 	env->yc = 0;
-	while (env->yc != env->endy)
+	while (env->yc < env->y)
 	{
 		env->xc = 0;
-		while (env->xc + 1 != env->endx)
+		while (env->xc + 1 != env->x)
 		{
 			env->yend = env->yc * 30;
 			env->xend = (env->xc + 1) * 30;
@@ -90,19 +89,22 @@ void	ft_while_x(t_env *env)
 			}
 			ft_bhm_x(env, env->xend, env->yend);
 			env->xc++;
+			printf("%s\n", "machin");
 		}
+		printf("%d\n", env->yc);
 		env->yc++;
 	}
+	printf("%s\n", "truc");
 }
 
 void	ft_while_y(t_env *env)
 {
 	ft_while_x(env);
 	env->xc = 0;
-	while (env->xc != env->endx)
+	while (env->xc != env->x)
 	{
 		env->yc = 0;
-		while (env->yc + 1 != env->endy)
+		while (env->yc + 1 != env->y)
 		{
 			env->xend = env->xc * 30;
 			env->yend = (env->yc + 1) * 30;
