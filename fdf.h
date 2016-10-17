@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:49:27 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/21 18:43:38 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/10/17 14:16:12 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,34 +38,34 @@
 
 typedef struct	s_env
 {
-	void		*mlx;
-	void		*win;
-	int			**tab;
-	int			ret;
-	int			fd;
+	void	*mlx;
+	void	*win;
+	int		**tab;
+	int		ret;
+	int		fd;
 
-	int 		x;
-	int			y;
-	int			xc;
-	int			xc2;
-	int			yc;
+	int		x;
+	int		y;
+	int		xc;
+	int		xc2;
+	int		yc;
 
-	int			p;
-	int			i;
-	int			zoom;
+	int		p;
+	int		i;
+	int		zoom;
 	double	iso_x;
 	double	iso_y;
-	int 		fix_x;
-	int 		fix_y;
+	int		fix_x;
+	int		fix_y;
 
-	int			endx;
-	int			endy;
-	int 		xend;
-	int			yend;
-	int			tmp2x;
-	int			tmp2y;
+	int		endx;
+	int		endy;
+	int		xend;
+	int		yend;
+	int		tmp2x;
+	int		tmp2y;
 
-	char		*line;
+	char	*line;
 }				t_env;
 
 int				ft_error(int ac);

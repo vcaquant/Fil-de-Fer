@@ -6,13 +6,13 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:54:08 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/16 16:55:21 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/10/17 14:21:01 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	ft_error(int ac)
+int		ft_error(int ac)
 {
 	if (ac != 2)
 	{
