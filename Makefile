@@ -21,7 +21,7 @@ FINDLIBFT =	-Llibft
 PT_A =			./minilibx_macos/libmlx.a \
 			./libft/libft.a
 
-FLAGS = 		-Wall -Wextra -Werror
+FLAGS = 		-Wall -Wextra -Werror -g
 
 LIBX_FS =		-framework OpenGL -framework AppKit
 

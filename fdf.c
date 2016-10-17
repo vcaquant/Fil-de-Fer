@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:19:06 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/09/21 18:43:55 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/10/17 16:38:33 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		main(int ac, char **av)
 	env->tab[env->y] = NULL;
 	printf("poulet\n");
 	env->i = 0;
-	while (env->tab[env->i])
+	while (env->i < env->y)
 	{
 		env->tab[env->i] = (int*)malloc(sizeof(int) * env->x);
 		//env->tab[env->i] = ft_memalloc(sizeof(int) * env->x);
