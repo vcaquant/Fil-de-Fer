@@ -35,7 +35,6 @@ int		ft_init_tab(t_env *env, char **av)
 		y++;
 	}
 	env->y = y;
-    printf("x = %d et y = %d\n", env->y, env->x);
 	close(env->fd);
 	return (1);
 }

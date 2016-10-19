@@ -48,22 +48,19 @@ int		main(int ac, char **av)
 		return (ft_map_not_valid());
 	env->fd = open(av[1], O_RDONLY);
 	env->tab = (int**)malloc(sizeof(int*) * (env->y + 1));
-	//env->tab = ft_memalloc(sizeof(int*) * (env->y + 1));
 	env->tab[env->y] = NULL;
-	printf("poulet\n");
 	env->i = 0;
 	while (env->i < env->y)
 	{
 		env->tab[env->i] = (int*)malloc(sizeof(int) * env->x);
-		//env->tab[env->i] = ft_memalloc(sizeof(int) * env->x);
 		(env->i)++;
 	}
-	//env->mlx = mlx_init();
-	//env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
+	env->mlx = mlx_init();
+	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
 	ft_recup(env);
 	ft_while_y(env);
-	//mlx_key_hook(env->win, aff_key, env);
-	//mlx_mouse_hook(env->win, aff_mouse, env);
-	//mlx_loop(env->mlx);
+	mlx_key_hook(env->win, aff_key, env);
+	mlx_mouse_hook(env->win, aff_mouse, env);
+	mlx_loop(env->mlx);
 	return (0);
 }

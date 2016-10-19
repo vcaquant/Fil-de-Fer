@@ -50,22 +50,19 @@ void	ft_recup(t_env *env)
 	{
 		env->xc = 0;
 		env->xc2 = 0;
-		//env->tab[env->yc] = ft_recupline(env->line);
-		while (env->line[env->xc2])
+		env->tab[env->yc] = ft_recupline(env->line);
+		/*while (env->line[env->xc2])
 		{
 			while (env->line[env->xc2] == ' ' && env->line[env->xc2])
 				env->xc2++;
 			if ((env->line[env->xc2] <= '9' && env->line[env->xc2] >= '0') || env->line[env->xc2] == '-')
 			{
 				env->tab[env->yc][env->xc] = ft_atoi(&env->line[env->xc2]);
-				printf("%d\n", ft_atoi(env->line + env->xc2));
 				env->xc++;
-				printf("%d\n", env->tab[env->yc][env->xc - 1]);
-
 			}
 			while (env->line[env->xc2] != ' ' && env->line[env->xc2] != '\0')
 				env->xc2++;
-		}
+		}*/
 		env->yc++;
 		//env->endx = ft_count_x(env->line);
 	}

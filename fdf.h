@@ -20,7 +20,7 @@
 
 # define BLACK		0x000000
 # define WHITE		0xFFFFFF
-# define AZUR			0x74D0F1
+# define AZUR		0x74D0F1
 # define AZUR_F		0x1E7FCB
 # define ABSINTHE	0x7FDD4C
 
@@ -49,6 +49,7 @@ typedef struct	s_env
 	int		xc;
 	int		xc2;
 	int		yc;
+	int		color;
 
 	int		p;
 	int		i;

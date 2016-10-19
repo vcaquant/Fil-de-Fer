@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:21:38 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/17 16:46:10 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/30/17 16:46:30 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,27 +74,32 @@ void	ft_while_x(t_env *env)
 		env->xc = 0;
 		while (env->xc + 1 != env->x)
 		{
+			env->color = 0;
 			env->yend = env->yc * 30;
 			env->xend = (env->xc + 1) * 30;
 			env->tmp2x = env->xc - env->tab[env->yc][env->xc];
 			env->tmp2y = env->yc * 30 - env->tab[env->yc][env->xc];
+			if (env->tab[env->yc][env->xc] > env->tab[env->yc][env->xc + 1])
+				env->color = 1;
 			if (env->xc != 0)
 				env->tmp2x = env->xc * 30 - env->tab[env->yc][env->xc];
-			if (env->tab[env->yc][env->xc + 1] == env->tab[env->yc][env->xc] && env->tab[env->yc][env->xc] != 0)
+			if (env->tab[env->yc][env->xc + 1] == env->tab[env->yc][env->xc]
+				&& env->tab[env->yc][env->xc] != 0)
+			{
 				env->yend = ((env->yc + 1) * 30) - env->tab[env->yc][env->xc] * 4;
+				env->color = 1;
+			}
 			else if (env->tab[env->yc][env->xc + 1] > env->tab[env->yc][env->xc])
 			{
 				env->yend = (env->yc * 30) - env->tab[env->yc][env->xc + 1];
 				env->xend = ((env->xc + 1) * 30) - env->tab[env->yc][env->xc + 1];
+				env->color = 1;
 			}
 			ft_bhm_x(env, env->xend, env->yend);
 			env->xc++;
-			printf("%s\n", "machin");
 		}
-		printf("%d\n", env->yc);
 		env->yc++;
 	}
-	printf("%s\n", "truc");
 }
 
 void	ft_while_y(t_env *env)
@@ -106,16 +111,24 @@ void	ft_while_y(t_env *env)
 		env->yc = 0;
 		while (env->yc + 1 != env->y)
 		{
+			env->color = 0;
 			env->xend = env->xc * 30;
 			env->yend = (env->yc + 1) * 30;
 			env->tmp2y = env->yc - env->tab[env->yc][env->xc];
 			env->tmp2x = env->xc * 30 - env->tab[env->yc][env->xc];
+			if (env->tab[env->yc][env->xc] > env->tab[env->yc + 1][env->xc])
+				env->color = 1;
 			if (env->yc != 0)
 				env->tmp2y = env->yc * 30 - env->tab[env->yc][env->xc];
-			if (env->tab[env->yc + 1][env->xc] == env->tab[env->yc][env->xc] && env->tab[env->yc][env->xc] != 0)
+			if (env->tab[env->yc + 1][env->xc] == env->tab[env->yc][env->xc]
+				&& env->tab[env->yc][env->xc] != 0)
+			{
+				env->color = 1;
 				env->xend = ((env->xc + 1) * 30) - env->tab[env->yc][env->xc] * 4;
+			}
 			else if (env->tab[env->yc + 1][env->xc] > env->tab[env->yc][env->xc])
 			{
+				env->color = 1;
 				env->yend = ((env->yc + 1) * 30) - env->tab[env->yc + 1][env->xc];
 				env->xend = ((env->xc) * 30) - env->tab[env->yc + 1][env->xc];
 			}
