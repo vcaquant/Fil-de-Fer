@@ -12,9 +12,9 @@
 
 #include "fdf.h"
 
-t_env	ft_trdtotwd(int x, int y, int z)
+t_coo	ft_trdtotwd(int x, int y, int z)
 {
-	t_env	n;
+	t_coo	n;
 
 	n.p = (16777215 - (((z * z / 2) / 27 * 132344 + 42) % 16777215)) / 2;
 	x = x * 30;

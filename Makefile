@@ -5,14 +5,23 @@ SRC = 			fdf.c \
 						ft_bressenham.c \
 						ft_recup.c \
 						ft_count.c \
-						ft_error.c
+						ft_error.c \
+						drawline.c \
+						drawline_beeline.c \
+						drawline_cadran.c \
+						drawline_cadran2.c
+
 
 OBJ = 			fdf.o \
 						ft_code.o \
 						ft_bressenham.o \
 						ft_recup.o \
 						ft_count.o \
-						ft_error.o
+						ft_error.o \
+						drawline.o \
+						drawline_beeline.o \
+						drawline_cadran.o \
+						drawline_cadran2.o
 
 HEADER =		./libft/libft.h\
 

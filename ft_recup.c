@@ -27,7 +27,6 @@ int		*ft_recupline(char *str)
 		return (NULL);
 	tab = (int*)malloc(sizeof(int) * (columns + 1));
 	i = 0;
-	//tab[i++] = columns;
 	while (str[j] != '\0' && str[j] != '\n')
 	{
 		while (str[j] == ' ')
@@ -51,23 +50,10 @@ void	ft_recup(t_env *env)
 		env->xc = 0;
 		env->xc2 = 0;
 		env->tab[env->yc] = ft_recupline(env->line);
-		/*while (env->line[env->xc2])
-		{
-			while (env->line[env->xc2] == ' ' && env->line[env->xc2])
-				env->xc2++;
-			if ((env->line[env->xc2] <= '9' && env->line[env->xc2] >= '0') || env->line[env->xc2] == '-')
-			{
-				env->tab[env->yc][env->xc] = ft_atoi(&env->line[env->xc2]);
-				env->xc++;
-			}
-			while (env->line[env->xc2] != ' ' && env->line[env->xc2] != '\0')
-				env->xc2++;
-		}*/
 		env->yc++;
-		//env->endx = ft_count_x(env->line);
 	}
+	close(env->fd);
 	env->endy = env->yc;
-//	ft_print_points(env);
 }
 
 void	ft_print_points(t_env *env)

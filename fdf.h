@@ -36,6 +36,16 @@
 # include <sys/uio.h>
 # include <sys/types.h>
 
+typedef struct	s_point
+{
+	double		x;
+	double		x_base;
+	double		y;
+	double		y_base;
+	double		z;
+	double		z_base;
+}				t_point;
+
 typedef struct	s_env
 {
 	void	*mlx;
@@ -65,9 +75,24 @@ typedef struct	s_env
 	int		yend;
 	int		tmp2x;
 	int		tmp2y;
+	int		stockx;
+	int		stocky;
 
 	char	*line;
 }				t_env;
+
+typedef struct	s_drawline
+{
+	double		dx;
+	double		dy;
+	double		x1;
+	double		x2;
+	double		y1;
+	double		y2;
+	double		z1;
+	double		z2;
+	double		e;
+}				t_drawline;
 
 int				ft_error(int ac);
 int				aff_key(int keycode, t_env *env);
@@ -83,6 +108,22 @@ void			ft_while_x(t_env *env);
 void			ft_while_y(t_env *env);
 void			ft_recup(t_env *env);
 void			ft_print_points(t_env *env);
-void			ft_color(t_env *env);
+void			ft_color(t_env *env, int x, int y);
+t_env			ft_trdtotwd(int x, int y, int z);
+int				expose_hook(t_env *env);
+
+void			ft_drawline(t_env *env, t_point p1, t_point p2);
+void			cadran1_a(t_drawline *draw, t_env *env);
+void			cadran1_b(t_drawline *draw, t_env *env);
+void			cadran2_a(t_drawline *draw, t_env *env);
+void			cadran2_b(t_drawline *draw, t_env *env);
+void			cadran3_a(t_drawline *draw, t_env *env);
+void			cadran3_b(t_drawline *draw, t_env *env);
+void			cadran4_a(t_drawline *draw, t_env *env);
+void			cadran4_b(t_drawline *draw, t_env *env);
+void			dx_null_a(t_drawline *draw, t_env *env);
+void			dx_null_b(t_drawline *draw, t_env *env);
+void			dy_null_a(t_drawline *draw, t_env *env);
+void			dy_null_b(t_drawline *draw, t_env *env);
 
 #endif
