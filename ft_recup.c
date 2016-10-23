@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/18 17:02:42 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/17 14:31:30 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/10/23 02:14:16 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ int		*ft_recupline(char *str)
 		while (str[j] == ' ')
 			j++;
 		if ((str[j] <= '9' && str[j] >= '0') || str[j] == '-')
-		{
-			tab[i] = ft_atoi(&str[j]);
-			i++;
-		}
+			tab[i++] = ft_atoi(&str[j]);
 		while (str[j] != '\0' && str[j] != '\n' && str[j] != ' ')
 			j++;
 	}
@@ -54,24 +51,4 @@ void	ft_recup(t_env *env)
 	}
 	close(env->fd);
 	env->endy = env->yc;
-}
-
-void	ft_print_points(t_env *env)
-{
-	env->zoom = 20;
-	env->yc = 0;
-	while (env->yc != env->endy)
-	{
-		env->xc = 0;
-		while (env->xc != env->endx)
-		{
-			env->tmp2x = env->xc;
-			env->tmp2y = (env->yc * env->zoom) - env->tab[env->yc][env->xc];
-			if (env->xc != 0)
-				env->tmp2x = env->xc * env->zoom;
-			//mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, white);
-			env->xc++;
-		}
-		env->yc++;
-	}
 }

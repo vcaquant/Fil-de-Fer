@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 14:16:41 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/17 14:20:37 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/10/23 02:08:09 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int		ft_init_tab(t_env *env, char **av)
 int		ft_count_x(char *str)
 {
 	int		count;
-    int     x;
+	int		x;
 
 	count = 0;
-    x = 0;
+	x = 0;
 	while (str[x] != '\n' && str[x] != '\0')
 	{
 		while (str[x] == ' ')
