@@ -73,8 +73,8 @@ void	ft_while_x(t_env *env)
 				env->xend = ((env->xc + 1) * env->up) - env->tab[env->yc][env->xc + 1];
 				env->color = 1;
 			}
-			//if (env->tab[env->yc][env->xc] < 0)
-			//	env->yend += env->tab[env->yc][env->xc];
+			if (env->tab[env->yc][env->xc] < 0)
+				env->yend += env->tab[env->yc][env->xc];
 			//mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, WHITE);
 			p1.x = env->tmp2x;
 			p1.y = env->tmp2y;
@@ -132,6 +132,8 @@ void	ft_while_y(t_env *env)
 				//env->yend = ((env->yc) * env->up) - env->tab[env->yc + 1][env->xc];
 				env->xend = ((env->xc) * env->up) - env->tab[env->yc + 1][env->xc];
 			}
+			if (env->tab[env->yc][env->xc] < 0)
+				env->yend += env->tab[env->yc][env->xc];
 			//mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, WHITE);
 
 			p1.x = env->tmp2x;

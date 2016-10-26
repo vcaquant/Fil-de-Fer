@@ -12,37 +12,13 @@
 
 #include "fdf.h"
 
-void 	delete(t_env *env)
-{
-	int		x;
-	int		y;
-	int		y2;
-	int		xend;
-	int		yend;
-
-	y = 0;
-	y2 = y + 1;
-	xend = W_X;
-	yend = W_Y;
-	while (y <= yend)
-	{
-		x = 0;
-		while (x <= xend)
-		{
-			mlx_pixel_put(env->mlx, env->win, x, y, BLACK);
-			x++;
-		}
-		y++;
-	}
-}
-
 void	truc(t_env *env, int keycode)
 {
 	int i;
 	int	j;
 
 	j = 0;
-	delete(env);
+	mlx_clear_window(env->mlx, env->win);
 	if (keycode == 40)
 	{
 		while (j < env->y)
@@ -76,7 +52,7 @@ void	truc(t_env *env, int keycode)
 
 void 	machin(t_env *env, int keycode)
 {
-	//delete(env);
+	mlx_clear_window(env->mlx, env->win);
 	if (keycode == 124)
 		env->fix_x += 10;
 	else if (keycode == 123)
@@ -91,6 +67,7 @@ void 	machin(t_env *env, int keycode)
 
 void 	zoom(t_env *env, int keycode)
 {
+	mlx_clear_window(env->mlx, env->win);
 	if (keycode == 24)
 		env->up += 2;
 	else if (keycode == 27)
@@ -108,10 +85,7 @@ int		aff_key(int keycode, t_env *env)
 	if (keycode == 40 || keycode == 46)
 		truc(env, keycode);
 	if (keycode >= 123 && keycode <= 126)
-	{
-		delete(env);
 		machin(env, keycode);
-	}
 	if (keycode == 24 || keycode == 27)
 		zoom(env, keycode);
 	return (0);

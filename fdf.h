@@ -110,8 +110,6 @@ void			ft_color(t_env *env, int x, int y);
 t_env			ft_trdtotwd(int x, int y, int z);
 int				expose_hook(t_env *env);
 
-void 			delete(t_env *env);
-
 void			ft_drawline(t_env *env, t_point p1, t_point p2);
 void			cadran1_a(t_drawline *draw, t_env *env);
 void			cadran1_b(t_drawline *draw, t_env *env);
