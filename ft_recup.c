@@ -51,4 +51,5 @@ void	ft_recup(t_env *env)
 	}
 	close(env->fd);
 	env->endy = env->yc;
+
 }

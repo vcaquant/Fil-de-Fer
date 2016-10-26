@@ -48,6 +48,9 @@ int		main(int ac, char **av)
 	env->fd = open(av[1], O_RDONLY);
 	env->tab = (int**)malloc(sizeof(int*) * (env->y + 1));
 	env->tab[env->y] = NULL;
+	env->fix_x = 200;
+	env->fix_y = 80;
+	env->up = 10;
 	env->i = 0;
 	while (env->i < env->y)
 	{
@@ -56,8 +59,9 @@ int		main(int ac, char **av)
 	}
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
-	ft_recup(env);
-	ft_while_y(env);
+	delete(env);
+	//ft_recup(env);
+	//ft_while_y(env);
 	mlx_key_hook(env->win, aff_key, env);
 	mlx_mouse_hook(env->win, aff_mouse, env);
 	mlx_loop(env->mlx);

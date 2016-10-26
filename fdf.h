@@ -39,11 +39,8 @@
 typedef struct	s_point
 {
 	double		x;
-	double		x_base;
 	double		y;
-	double		y_base;
 	double		z;
-	double		z_base;
 }				t_point;
 
 typedef struct	s_env
@@ -68,6 +65,7 @@ typedef struct	s_env
 	double	iso_y;
 	int		fix_x;
 	int		fix_y;
+	int		up;
 
 	int		endx;
 	int		endy;
@@ -111,6 +109,8 @@ void			ft_print_points(t_env *env);
 void			ft_color(t_env *env, int x, int y);
 t_env			ft_trdtotwd(int x, int y, int z);
 int				expose_hook(t_env *env);
+
+void 			delete(t_env *env);
 
 void			ft_drawline(t_env *env, t_point p1, t_point p2);
 void			cadran1_a(t_drawline *draw, t_env *env);
