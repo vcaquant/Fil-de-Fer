@@ -50,7 +50,7 @@ comp_oth:
 $(NAME):
 		@clear
 		$(CC) $(FLAGS) -c $(SRC) $(HEADER)
-		$(CC) -o $(NAME) $(OBJ) $(PT_A) $(LIBX_FS) -g
+		$(CC) -o $(NAME) $(OBJ) $(PT_A) $(LIBX_FS) 
 
 clean:
 		@clear
