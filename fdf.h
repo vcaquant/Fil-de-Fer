@@ -47,6 +47,7 @@ typedef struct	s_env
 {
 	void	*mlx;
 	void	*win;
+	void 	*s_win;
 	int		**tab;
 	int		ret;
 	int		fd;
@@ -109,6 +110,9 @@ void			ft_print_points(t_env *env);
 void			ft_color(t_env *env, int x, int y);
 t_env			ft_trdtotwd(int x, int y, int z);
 int				expose_hook(t_env *env);
+
+void 			aff_help(t_env *env);
+int 			aff_help_exit(int keycode, t_env *env);
 
 void			ft_drawline(t_env *env, t_point p1, t_point p2);
 void			cadran1_a(t_drawline *draw, t_env *env);

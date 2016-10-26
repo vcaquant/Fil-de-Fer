@@ -2,6 +2,7 @@ NAME = 			fdf
 
 SRC = 			fdf.c \
 						ft_code.c \
+						ft_help.c \
 						ft_bressenham.c \
 						ft_recup.c \
 						ft_count.c \
@@ -14,6 +15,7 @@ SRC = 			fdf.c \
 
 OBJ = 			fdf.o \
 						ft_code.o \
+						ft_help.o \
 						ft_bressenham.o \
 						ft_recup.o \
 						ft_count.o \
@@ -50,7 +52,7 @@ comp_oth:
 $(NAME):
 		@clear
 		$(CC) $(FLAGS) -c $(SRC) $(HEADER)
-		$(CC) -o $(NAME) $(OBJ) $(PT_A) $(LIBX_FS) 
+		$(CC) -o $(NAME) $(OBJ) $(PT_A) $(LIBX_FS)
 
 clean:
 		@clear

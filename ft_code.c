@@ -61,7 +61,6 @@ void 	machin(t_env *env, int keycode)
 		env->fix_y += 10;
 	else if (keycode == 126)
 		env->fix_y -= 10;
-	mlx_string_put(env->mlx, env->win, 0, 0, ABSINTHE, "deplacement vers la droite");
 	ft_while_y(env);
 }
 
@@ -80,7 +79,9 @@ int		aff_key(int keycode, t_env *env)
 	ft_putstr("touche");
 	ft_putnbr(keycode);
 	ft_putchar('\n');
-	if (keycode == 13 || keycode == 53)
+	if (keycode == 4)
+		aff_help(env);
+	if (keycode == 12 || keycode == 53)
 		exit(EXIT_SUCCESS);
 	if (keycode == 40 || keycode == 46)
 		truc(env, keycode);
