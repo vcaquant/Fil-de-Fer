@@ -29,7 +29,7 @@ void 	delete(t_env *env)
 		x = 0;
 		while (x <= xend)
 		{
-			mlx_pixel_put(env->mlx, env->win, x, y, WHITE);
+			mlx_pixel_put(env->mlx, env->win, x, y, BLACK);
 			x++;
 		}
 		y++;

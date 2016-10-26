@@ -75,13 +75,13 @@ void	ft_while_x(t_env *env)
 			}
 			//if (env->tab[env->yc][env->xc] < 0)
 			//	env->yend += env->tab[env->yc][env->xc];
-			mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, WHITE);
+			//mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, WHITE);
 			p1.x = env->tmp2x;
 			p1.y = env->tmp2y;
 			p2.x = env->xend;
 			p2.y = env->yend;
 			//printf("----\nx1 = %f y1 = %f\n----\nx2 = %f y2 = %f\n", p1.x, p1.y, p2.x, p2.y);
-			//ft_drawline(env, p1, p2);
+			ft_drawline(env, p1, p2);
 			env->xc++;
 		}
 		env->yc++;
@@ -132,13 +132,13 @@ void	ft_while_y(t_env *env)
 				//env->yend = ((env->yc) * env->up) - env->tab[env->yc + 1][env->xc];
 				env->xend = ((env->xc) * env->up) - env->tab[env->yc + 1][env->xc];
 			}
-			mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, WHITE);
+			//mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, WHITE);
 
 			p1.x = env->tmp2x;
 			p1.y = env->tmp2y;
 			p2.x = env->xend;
 			p2.y = env->yend;
-			//ft_drawline(env, p1, p2);
+			ft_drawline(env, p1, p2);
 			env->yc++;
 		}
 		env->xc++;
