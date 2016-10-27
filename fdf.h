@@ -94,25 +94,19 @@ typedef struct	s_drawline
 }				t_drawline;
 
 int				ft_error(int ac);
-int				aff_key(int keycode, t_env *env);
-int				aff_mouse(int mousecode);
-int				aff_exp(t_env *env);
+int				ft_map_not_valid(void);
 int				ft_count_x(char *str);
 int				ft_init_tab(t_env *env, char **av);
-int				ft_map_not_valid(void);
 int				*ft_recupline(char *str);
-void			ft_bhm_x(t_env *env, int xend, int yend);
-void			ft_bhm_y(t_env *env, int xend, int yend);
+void			ft_recup(t_env *env);
 void			ft_while_x(t_env *env);
 void			ft_while_y(t_env *env);
-void			ft_recup(t_env *env);
-void			ft_print_points(t_env *env);
 void			ft_color(t_env *env, int x, int y);
-t_env			ft_trdtotwd(int x, int y, int z);
-int				expose_hook(t_env *env);
 
-void 			aff_help(t_env *env);
+int				aff_key(int keycode, t_env *env);
+int				aff_mouse(int mousecode);
 int 			aff_help_exit(int keycode, t_env *env);
+void 			aff_help(t_env *env);
 
 void			ft_drawline(t_env *env, t_point p1, t_point p2);
 void			cadran1_a(t_drawline *draw, t_env *env);

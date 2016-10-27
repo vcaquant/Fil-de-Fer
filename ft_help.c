@@ -3,7 +3,10 @@
 int 	aff_help_exit(int keycode, t_env *env)
 {
 	if (keycode == 12 || keycode == 53)
+    {
+        ft_putstr("\033[0;32mHelp Closed\033[0m\n");
 		mlx_destroy_window(env->mlx, env->s_win);
+    }
 	return (0);
 }
 
@@ -16,4 +19,4 @@ void 	aff_help(t_env *env)
 	mlx_string_put(env->mlx, env->s_win, 0, 45, WHITE, "+ = Zoom");
 	mlx_string_put(env->mlx, env->s_win, 0, 60, WHITE, "- = Dezoom");
 	mlx_key_hook(env->s_win, aff_help_exit, env);
-} 
+}

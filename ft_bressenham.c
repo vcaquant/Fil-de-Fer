@@ -17,12 +17,16 @@ void	ft_color(t_env *env, int x, int y)
 	if (env->yc + 1 < env->y && env->xc + 1 < env->x)
 	{
 		if (env->color == 1)
-		//if ((env->tab[env->yc][env->xc + 1] >= 1 && env->tab[env->yc][env->xc + 1] <= 10) || (env->tab[env->yc + 1][env->xc] >= 1 && env->tab[env->yc + 1][env->xc + 1] <= 10) || (env->tab[env->yc][env->xc] >= 1 && env->tab[env->yc][env->xc] <= 10))
-			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, AZUR);
-		/*else if (env->tab[env->yc][env->xc] >= 120 && env->tab[env->yc][env->xc] <= 130)
-			mlx_pixel_put(env->mlx, env->win, ((x - y)) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, AZUR_F);
-		else if (env->tab[env->yc][env->xc] >= 26 && env->tab[env->yc][env->xc] <= 35)
-			mlx_pixel_put(env->mlx, env->win, ((x - y)) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, ABSINTHE);*/
+		{
+			if ((env->tab[env->yc][env->xc + 1] >= 1 && env->tab[env->yc][env->xc + 1] <= 10) || (env->tab[env->yc + 1][env->xc] >= 1 && env->tab[env->yc + 1][env->xc + 1] <= 10) || (env->tab[env->yc][env->xc] >= 1 && env->tab[env->yc][env->xc] <= 10))
+				mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, AZUR);
+			else if ((env->tab[env->yc][env->xc + 1] >= 11 && env->tab[env->yc][env->xc + 1] <= 30) || (env->tab[env->yc + 1][env->xc] >= 11 && env->tab[env->yc + 1][env->xc + 1] <= 20) || (env->tab[env->yc][env->xc] >= 11 && env->tab[env->yc][env->xc] <= 20))
+				mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, AZUR_F);
+			else if ((env->tab[env->yc][env->xc + 1] >= 31 && env->tab[env->yc][env->xc + 1] <= 40) || (env->tab[env->yc + 1][env->xc] >= 21 && env->tab[env->yc + 1][env->xc + 1] <= 30) || (env->tab[env->yc][env->xc] >= 21 && env->tab[env->yc][env->xc] <= 30))
+				mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, ABSINTHE);
+			else
+				mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, WHITE);
+		}
 		else
 			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, WHITE);
 	}
@@ -69,13 +73,14 @@ void	ft_while_x(t_env *env)
 			else if (env->tab[env->yc][env->xc + 1] > env->tab[env->yc][env->xc])
 			{
 				env->yend = (env->yc * env->up) - env->tab[env->yc][env->xc + 1];
-				//env->xend = ((env->xc) * env->up) - env->tab[env->yc][env->xc + 1];
 				env->xend = ((env->xc + 1) * env->up) - env->tab[env->yc][env->xc + 1];
 				env->color = 1;
 			}
 			if (env->tab[env->yc][env->xc] < 0)
-				env->yend += env->tab[env->yc][env->xc];
-			//mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, WHITE);
+			{
+				env->yend = (env->yc * env->up) - env->tab[env->yc][env->xc + 1];
+				env->xend = ((env->xc + 1) * env->up) - env->tab[env->yc][env->xc + 1];
+			}
 			p1.x = env->tmp2x;
 			p1.y = env->tmp2y;
 			p2.x = env->xend;
@@ -107,7 +112,6 @@ void	ft_while_y(t_env *env)
 				env->tmp2y = env->yend;
 			}
 			env->xend = env->xc * env->up;
-			//env->yend = (env->yc) * env->up;
 			env->yend = (env->yc + 1) * env->up;
 			if (env->tab[env->yc][env->xc] > env->tab[env->yc + 1][env->xc])
 				env->color = 1;
@@ -129,13 +133,15 @@ void	ft_while_y(t_env *env)
 			{
 				env->color = 1;
 				env->yend = ((env->yc + 1) * env->up) - env->tab[env->yc + 1][env->xc];
-				//env->yend = ((env->yc) * env->up) - env->tab[env->yc + 1][env->xc];
 				env->xend = ((env->xc) * env->up) - env->tab[env->yc + 1][env->xc];
 			}
 			if (env->tab[env->yc][env->xc] < 0)
-				env->yend += env->tab[env->yc][env->xc];
-			//mlx_pixel_put(env->mlx, env->win, env->tmp2x, env->tmp2y, WHITE);
-
+			{
+				//env->tmp2x = ((env->xc + 1) * env->up) - env->tab[env->yc][env->xc];
+				//env->tmp2y = (env->yc * env->up) - env->tab[env->yc][env->xc];
+				env->yend = ((env->yc + 1) * env->up) - env->tab[env->yc][env->xc + 1];
+				env->xend = (env->xc * env->up) - env->tab[env->yc][env->xc + 1];
+			}
 			p1.x = env->tmp2x;
 			p1.y = env->tmp2y;
 			p2.x = env->xend;
