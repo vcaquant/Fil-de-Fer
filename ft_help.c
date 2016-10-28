@@ -28,7 +28,7 @@ void 	aff_help(t_env *env)
 	mlx_string_put(env->mlx, env->s_win, 0, 185, AZUR, "|               Zoom                |");
 	mlx_string_put(env->mlx, env->s_win, 0, 200, AZUR, " ===================================");
 	mlx_string_put(env->mlx, env->s_win, 0, 215, WHITE, "+ = Zoom");
-	mlx_string_put(env->mlx, env->s_win, 0, 230, WHITE, "- = Dezoom");
+	mlx_string_put(env->mlx, env->s_win, 0, 230, WHITE, "- = Dézoom");
 	mlx_string_put(env->mlx, env->s_win, 0, 250, AZUR, " ===================================");
 	mlx_string_put(env->mlx, env->s_win, 0, 265, AZUR, "|      Variations de la hauteur     |");
 	mlx_string_put(env->mlx, env->s_win, 0, 280, AZUR, " ===================================");
