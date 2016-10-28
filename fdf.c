@@ -50,8 +50,10 @@ int		main(int ac, char **av)
 	env->tab[env->y] = NULL;
 	env->fix_x = 200;
 	env->fix_y = 80;
+	env->iso_y = 1;
 	env->up = 10;
 	env->i = 0;
+	env->s_win = NULL;
 	while (env->i < env->y)
 	{
 		env->tab[env->i] = (int*)malloc(sizeof(int) * env->x);

@@ -23,6 +23,7 @@
 # define AZUR		0x74D0F1
 # define AZUR_F		0x1E7FCB
 # define ABSINTHE	0x7FDD4C
+# define RED		0x00FF0000
 
 # include "libft/libft.h"
 # include "minilibx_macos/mlx.h"
