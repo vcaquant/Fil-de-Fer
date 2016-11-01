@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:19:06 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/23 02:05:44 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/10/31 15:41:01 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int		ft_init_struct(t_env **env, char **av)
 	str = av[1];
 	if (!(*env = (t_env*)malloc(sizeof(t_env))))
 		return (0);
+	(*env)->fix_x = 200;
+	(*env)->fix_y = 80;
+	(*env)->iso_y = 1;
+	(*env)->up = 10;
+	(*env)->s_win = NULL;
 	return (1);
 }
 
@@ -48,17 +53,9 @@ int		main(int ac, char **av)
 	env->fd = open(av[1], O_RDONLY);
 	env->tab = (int**)malloc(sizeof(int*) * (env->y + 1));
 	env->tab[env->y] = NULL;
-	env->fix_x = 200;
-	env->fix_y = 80;
-	env->iso_y = 1;
-	env->up = 10;
 	env->i = 0;
-	env->s_win = NULL;
 	while (env->i < env->y)
-	{
-		env->tab[env->i] = (int*)malloc(sizeof(int) * env->x);
-		(env->i)++;
-	}
+		env->tab[env->i++] = (int*)malloc(sizeof(int) * env->x);
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, W_X, W_Y, "FDF_42");
 	ft_recup(env);

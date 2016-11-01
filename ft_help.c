@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_help.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/31 15:37:01 by vcaquant          #+#    #+#             */
+/*   Updated: 2016/10/31 15:43:09 by vcaquant         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-int 	aff_help_exit(int keycode, t_env *env)
+int		aff_help_exit(int keycode, t_env *env)
 {
 	if (keycode == 12 || keycode == 53)
-    {
-        ft_putstr("\033[0;32mHelp Closed\033[0m\n");
+	{
+		ft_putstr("\033[0;32mHelp Closed\033[0m\n");
 		mlx_destroy_window(env->mlx, env->s_win);
 		env->s_win = NULL;
-    }
+	}
 	return (0);
 }
 
-void 	aff_help(t_env *env)
+void	aff_help(t_env *env)
 {
 	env->s_win = mlx_new_window(env->mlx, 450, 450, "HELP_FDF");
 	mlx_string_put(env->mlx, env->s_win, 0, 0, ABSINTHE, " ===========================================");
@@ -28,7 +40,7 @@ void 	aff_help(t_env *env)
 	mlx_string_put(env->mlx, env->s_win, 0, 185, AZUR, "|               Zoom                |");
 	mlx_string_put(env->mlx, env->s_win, 0, 200, AZUR, " ===================================");
 	mlx_string_put(env->mlx, env->s_win, 0, 215, WHITE, "+ = Zoom");
-	mlx_string_put(env->mlx, env->s_win, 0, 230, WHITE, "- = Dézoom");
+	mlx_string_put(env->mlx, env->s_win, 0, 230, WHITE, "- = Dezoom");
 	mlx_string_put(env->mlx, env->s_win, 0, 250, AZUR, " ===================================");
 	mlx_string_put(env->mlx, env->s_win, 0, 265, AZUR, "|      Variations de la hauteur     |");
 	mlx_string_put(env->mlx, env->s_win, 0, 280, AZUR, " ===================================");

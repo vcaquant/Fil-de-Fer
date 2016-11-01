@@ -6,13 +6,13 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:46:57 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/17 17:01:05 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/10/31 15:50:29 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void 	iso(t_env *env, int keycode)
+void	iso(t_env *env, int keycode)
 {
 	mlx_clear_window(env->mlx, env->win);
 	if (keycode == 34)
@@ -31,8 +31,8 @@ void 	iso(t_env *env, int keycode)
 
 void	truc(t_env *env, int keycode)
 {
-	int i;
-	int	j;
+	int		i;
+	int		j;
 
 	j = 0;
 	mlx_clear_window(env->mlx, env->win);
@@ -67,7 +67,7 @@ void	truc(t_env *env, int keycode)
 	ft_while_y(env);
 }
 
-void 	machin(t_env *env, int keycode)
+void	machin(t_env *env, int keycode)
 {
 	mlx_clear_window(env->mlx, env->win);
 	if (keycode == 124)
@@ -81,7 +81,7 @@ void 	machin(t_env *env, int keycode)
 	ft_while_y(env);
 }
 
-int 	zoom(t_env *env, int keycode)
+void	zoom(t_env *env, int keycode)
 {
 	mlx_clear_window(env->mlx, env->win);
 	if (keycode == 24)
@@ -89,7 +89,6 @@ int 	zoom(t_env *env, int keycode)
 	else if (keycode == 27)
 		env->up -= 2;
 	ft_while_y(env);
-	return (0);
 }
 
 int		aff_key(int keycode, t_env *env)

@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:49:27 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/17 14:16:12 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/10/31 15:40:36 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct	s_env
 {
 	void	*mlx;
 	void	*win;
-	void 	*s_win;
+	void	*s_win;
 	int		**tab;
 	int		ret;
 	int		fd;
@@ -106,8 +106,8 @@ void			ft_color(t_env *env, int x, int y);
 
 int				aff_key(int keycode, t_env *env);
 int				aff_mouse(int mousecode);
-int 			aff_help_exit(int keycode, t_env *env);
-void 			aff_help(t_env *env);
+int				aff_help_exit(int keycode, t_env *env);
+void			aff_help(t_env *env);
 
 void			ft_drawline(t_env *env, t_point p1, t_point p2);
 void			cadran1_a(t_drawline *draw, t_env *env);
