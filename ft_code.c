@@ -26,7 +26,8 @@ void	iso(t_env *env, int keycode)
 		env->iso_y++;
 	else if (keycode == 35 && env->iso_y > 1)
 		env->iso_y--;
-	ft_while_y(env);
+	name_y(env);
+	//ft_while_y(env);
 }
 
 void	truc(t_env *env, int keycode)
@@ -64,7 +65,8 @@ void	truc(t_env *env, int keycode)
 			j++;
 		}
 	}
-	ft_while_y(env);
+	//ft_while_y(env);
+	name_y(env);
 }
 
 void	machin(t_env *env, int keycode)
@@ -78,7 +80,8 @@ void	machin(t_env *env, int keycode)
 		env->fix_y += 10;
 	else if (keycode == 126)
 		env->fix_y -= 10;
-	ft_while_y(env);
+	//ft_while_y(env);
+	name_y(env);
 }
 
 void	zoom(t_env *env, int keycode)
@@ -88,7 +91,8 @@ void	zoom(t_env *env, int keycode)
 		env->up += 2;
 	else if (keycode == 27)
 		env->up -= 2;
-	ft_while_y(env);
+	//ft_while_y(env);
+	name_y(env);
 }
 
 int		aff_key(int keycode, t_env *env)

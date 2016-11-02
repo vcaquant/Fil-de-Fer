@@ -13,8 +13,8 @@
 #ifndef FDF_H
 # define FDF_H
 
-# define W_X 1000
-# define W_Y 600
+# define W_X 1200
+# define W_Y 800
 # define FIX_Y 80
 # define FIX_X 450
 
@@ -24,6 +24,10 @@
 # define AZUR_F		0x1E7FCB
 # define ABSINTHE	0x7FDD4C
 # define RED		0x00FF0000
+# define BROWN		0x00996600
+# define G_P		0x00CCFF66
+# define G_F		0x0000CC00
+# define Y_P		0x00CCCC66
 
 # include "libft/libft.h"
 # include "minilibx_macos/mlx.h"
@@ -122,5 +126,8 @@ void			dx_null_a(t_drawline *draw, t_env *env);
 void			dx_null_b(t_drawline *draw, t_env *env);
 void			dy_null_a(t_drawline *draw, t_env *env);
 void			dy_null_b(t_drawline *draw, t_env *env);
+
+void 			name_x(t_env *env);
+void 			name_y(t_env *env);
 
 #endif
