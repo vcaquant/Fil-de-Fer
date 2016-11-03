@@ -87,10 +87,20 @@ void	machin(t_env *env, int keycode)
 void	zoom(t_env *env, int keycode)
 {
 	mlx_clear_window(env->mlx, env->win);
-	if (keycode == 24)
-		env->up += 2 * (env->up / 10);
-	else if (keycode == 27)
-		env->up -= 2 * (env->up / 10);
+	if (env->up > 9)
+	{
+		if (keycode == 24)
+			env->up += 2 * (env->up / 10);
+		else if (keycode == 27)
+			env->up -= 2 * (env->up / 10);
+	}
+	else
+	{
+		if (keycode == 24)
+			env->up += 2;
+		else if (keycode == 27)
+			env->up -= 2;
+	}
 	//ft_while_y(env);
 	name_y(env);
 }

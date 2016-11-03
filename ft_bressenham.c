@@ -6,15 +6,46 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/17 03:21:38 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/31 15:53:40 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/11/03 13:54:17 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void 	color2(t_env *env, int x, int y)
+void	color2(t_env *env, int x, int y)
 {
-	mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, RED);
+	if (env->iso_y == 1)
+		mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, RED);
+	else
+		mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, RED);
+}
+
+void	color1(t_env *env, int x, int y)
+{
+	if (env->iso_y == 1)
+	{
+		if ((env->tab[env->yc][env->xc + 1] >= 1 && env->tab[env->yc][env->xc + 1] <= 10) || (env->tab[env->yc + 1][env->xc] >= 1 && env->tab[env->yc + 1][env->xc + 1] <= 10) || (env->tab[env->yc][env->xc] >= 1 && env->tab[env->yc][env->xc] <= 10))
+			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_P);
+		else if ((env->tab[env->yc][env->xc + 1] >= 11 && env->tab[env->yc][env->xc + 1] <= 30) || (env->tab[env->yc + 1][env->xc] >= 11 && env->tab[env->yc + 1][env->xc + 1] <= 20) || (env->tab[env->yc][env->xc] >= 11 && env->tab[env->yc][env->xc] <= 20))
+			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_F);
+		else if ((env->tab[env->yc][env->xc + 1] >= 31 && env->tab[env->yc][env->xc + 1] <= 40) || (env->tab[env->yc + 1][env->xc] >= 21 && env->tab[env->yc + 1][env->xc + 1] <= 30) || (env->tab[env->yc][env->xc] >= 21 && env->tab[env->yc][env->xc] <= 30))
+			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, Y_P);
+		else if ((env->tab[env->yc][env->xc + 1] >= 41 && env->tab[env->yc][env->xc + 1] <= 70) || (env->tab[env->yc + 1][env->xc] >= 31 && env->tab[env->yc + 1][env->xc + 1] <= 60) || (env->tab[env->yc][env->xc] >= 31 && env->tab[env->yc][env->xc] <= 60))
+			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, BROWN);
+		else
+			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, WHITE);
+	}
+	else
+	{
+		if ((env->tab[env->yc][env->xc + 1] >= 1 && env->tab[env->yc][env->xc + 1] <= 10) || (env->tab[env->yc + 1][env->xc] >= 1 && env->tab[env->yc + 1][env->xc + 1] <= 10) || (env->tab[env->yc][env->xc] >= 1 && env->tab[env->yc][env->xc] <= 10))
+			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, AZUR);
+		else if ((env->tab[env->yc][env->xc + 1] >= 11 && env->tab[env->yc][env->xc + 1] <= 30) || (env->tab[env->yc + 1][env->xc] >= 11 && env->tab[env->yc + 1][env->xc + 1] <= 20) || (env->tab[env->yc][env->xc] >= 11 && env->tab[env->yc][env->xc] <= 20))
+			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, AZUR_F);
+		else if ((env->tab[env->yc][env->xc + 1] >= 31 && env->tab[env->yc][env->xc + 1] <= 40) || (env->tab[env->yc + 1][env->xc] >= 21 && env->tab[env->yc + 1][env->xc + 1] <= 30) || (env->tab[env->yc][env->xc] >= 21 && env->tab[env->yc][env->xc] <= 30))
+			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, ABSINTHE);
+		else
+			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, BROWN);
+	}
 }
 
 void	ft_color(t_env *env, int x, int y)
@@ -22,32 +53,7 @@ void	ft_color(t_env *env, int x, int y)
 	if (env->yc + 1 < env->y && env->xc + 1 < env->x)
 	{
 		if (env->color == 1)
-		{
-			if (env->iso_y == 1)
-			{
-				if ((env->tab[env->yc][env->xc + 1] >= 1 && env->tab[env->yc][env->xc + 1] <= 10) || (env->tab[env->yc + 1][env->xc] >= 1 && env->tab[env->yc + 1][env->xc + 1] <= 10) || (env->tab[env->yc][env->xc] >= 1 && env->tab[env->yc][env->xc] <= 10))
-					mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_P);
-				else if ((env->tab[env->yc][env->xc + 1] >= 11 && env->tab[env->yc][env->xc + 1] <= 30) || (env->tab[env->yc + 1][env->xc] >= 11 && env->tab[env->yc + 1][env->xc + 1] <= 20) || (env->tab[env->yc][env->xc] >= 11 && env->tab[env->yc][env->xc] <= 20))
-					mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_F);
-				else if ((env->tab[env->yc][env->xc + 1] >= 31 && env->tab[env->yc][env->xc + 1] <= 40) || (env->tab[env->yc + 1][env->xc] >= 21 && env->tab[env->yc + 1][env->xc + 1] <= 30) || (env->tab[env->yc][env->xc] >= 21 && env->tab[env->yc][env->xc] <= 30))
-					mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, Y_P);
-				else if ((env->tab[env->yc][env->xc + 1] >= 41 && env->tab[env->yc][env->xc + 1] <= 70) || (env->tab[env->yc + 1][env->xc] >= 31 && env->tab[env->yc + 1][env->xc + 1] <= 60) || (env->tab[env->yc][env->xc] >= 31 && env->tab[env->yc][env->xc] <= 60))
-					mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, BROWN);
-				else
-					mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, WHITE);
-			}
-			else
-			{
-				if ((env->tab[env->yc][env->xc + 1] >= 1 && env->tab[env->yc][env->xc + 1] <= 10) || (env->tab[env->yc + 1][env->xc] >= 1 && env->tab[env->yc + 1][env->xc + 1] <= 10) || (env->tab[env->yc][env->xc] >= 1 && env->tab[env->yc][env->xc] <= 10))
-					mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, AZUR);
-				else if ((env->tab[env->yc][env->xc + 1] >= 11 && env->tab[env->yc][env->xc + 1] <= 30) || (env->tab[env->yc + 1][env->xc] >= 11 && env->tab[env->yc + 1][env->xc + 1] <= 20) || (env->tab[env->yc][env->xc] >= 11 && env->tab[env->yc][env->xc] <= 20))
-					mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, AZUR_F);
-				else if ((env->tab[env->yc][env->xc + 1] >= 31 && env->tab[env->yc][env->xc + 1] <= 40) || (env->tab[env->yc + 1][env->xc] >= 21 && env->tab[env->yc + 1][env->xc + 1] <= 30) || (env->tab[env->yc][env->xc] >= 21 && env->tab[env->yc][env->xc] <= 30))
-					mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, ABSINTHE);
-				else
-					mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso_y) + env->fix_y, BROWN);
-			}
-		}
+			color1(env, x, y);
 		else if (env->color == 2)
 			color2(env, x, y);
 		else
@@ -67,12 +73,13 @@ void	ft_color(t_env *env, int x, int y)
 	}
 }
 
-void 	name_x(t_env *env)
+void	name_x(t_env *env)
 {
 	t_point		p1;
 	t_point		p2;
 
 	env->yc = 0;
+	env->xoy = 0;
 	while (env->yc < env->y)
 	{
 		env->xc = 0;
@@ -106,7 +113,6 @@ void 	name_x(t_env *env)
 			env->xc++;
 		}
 		env->yc++;
-
 	}
 }
 
@@ -174,13 +180,14 @@ void 	name_x(t_env *env)
 	}
 }*/
 
-void 	name_y(t_env *env)
+void	name_y(t_env *env)
 {
 	t_point		p1;
 	t_point		p2;
 
 	name_x(env);
 	env->xc = 0;
+	env->xoy = 1;
 	while (env->xc < env->x)
 	{
 		env->yc = 0;
@@ -214,7 +221,6 @@ void 	name_y(t_env *env)
 			env->yc++;
 		}
 		env->xc++;
-
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:49:27 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/31 15:40:36 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/11/03 12:54:35 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct	s_env
 	int		color;
 
 	int		p;
+	int		xoy;
 	int		i;
 	int		zoom;
 	double	iso_x;
@@ -127,7 +128,7 @@ void			dx_null_b(t_drawline *draw, t_env *env);
 void			dy_null_a(t_drawline *draw, t_env *env);
 void			dy_null_b(t_drawline *draw, t_env *env);
 
-void 			name_x(t_env *env);
-void 			name_y(t_env *env);
+void			name_x(t_env *env);
+void			name_y(t_env *env);
 
 #endif
