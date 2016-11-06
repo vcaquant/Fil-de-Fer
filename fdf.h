@@ -28,6 +28,7 @@
 # define G_P		0x00CCFF66
 # define G_F		0x0000CC00
 # define Y_P		0x00CCCC66
+# define ROTATE_VALUE 0.174533
 
 # include "libft/libft.h"
 # include "minilibx_macos/mlx.h"
@@ -47,6 +48,19 @@ typedef struct	s_point
 	double		y;
 	double		z;
 }				t_point;
+
+typedef struct	s_matrix
+{
+	double		a1;
+	double		a2;
+	double		a3;
+	double		b1;
+	double		b2;
+	double		b3;
+	double		c1;
+	double		c2;
+	double		c3;
+}				t_matrix;
 
 typedef struct	s_env
 {
@@ -84,6 +98,8 @@ typedef struct	s_env
 	int		stocky;
 
 	char	*line;
+
+	t_matrix	*matrix;
 }				t_env;
 
 typedef struct	s_drawline
@@ -130,5 +146,7 @@ void			dy_null_b(t_drawline *draw, t_env *env);
 
 void			name_x(t_env *env);
 void			name_y(t_env *env);
+
+void 			rotate_points(t_env *env, char axe, double teta);
 
 #endif

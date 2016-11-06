@@ -136,6 +136,11 @@ int		aff_key(int keycode, t_env *env)
 		zoom(env, keycode);
 	if (keycode == 34 || keycode == 31 || keycode == 35)
 		iso(env, keycode);
+	if (keycode == 13)
+	{
+		rotate_points(env, 'x', ROTATE_VALUE);
+		//name_y(env);
+	}
 	return (0);
 }
 

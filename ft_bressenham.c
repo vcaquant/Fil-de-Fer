@@ -116,6 +116,50 @@ void	name_x(t_env *env)
 	}
 }
 
+void	name_y(t_env *env)
+{
+	t_point		p1;
+	t_point		p2;
+
+	name_x(env);
+	env->xc = 0;
+	env->xoy = 1;
+	while (env->xc < env->x)
+	{
+		env->yc = 0;
+		while (env->yc + 1 != env->y)
+		{
+			env->color = 0;
+			if (env->xc != 0)
+			{
+				env->tmp2x = env->xend;
+				env->tmp2y = env->yend;
+			}
+			if (env->yc == 0)
+			{
+				env->tmp2x = env->xc * env->up;
+				env->tmp2y = env->yc;
+			}
+			if (env->tab[env->yc][env->xc] > 0 && env->tab[env->yc + 1][env->xc] > 0)
+				env->color = 1;
+			else if (env->tab[env->yc][env->xc] > 0 && env->tab[env->yc + 1][env->xc] == 0)
+				env->color = 2;
+			else if (env->tab[env->yc][env->xc] == 0 && env->tab[env->yc + 1][env->xc] > 0 && env->yc > 0)
+				env->color = 2;
+			env->yend = (env->yc + 1) * env->up;
+			env->xend = env->xc * env->up;
+			p1.x = env->tmp2x;
+			p1.y = env->tmp2y;
+			p2.x = env->xend;
+			p2.y = env->yend;
+			//printf("----\nx1 = %f y1 = %f\n----\nx2 = %f y2 = %f\n", p1.x, p1.y, p2.x, p2.y);
+			ft_drawline(env, p1, p2);
+			env->yc++;
+		}
+		env->xc++;
+	}
+}
+
 /*void	ft_while_x(t_env *env)
 {
 	t_point		p1;
@@ -178,53 +222,9 @@ void	name_x(t_env *env)
 		}
 		env->yc++;
 	}
-}*/
-
-void	name_y(t_env *env)
-{
-	t_point		p1;
-	t_point		p2;
-
-	name_x(env);
-	env->xc = 0;
-	env->xoy = 1;
-	while (env->xc < env->x)
-	{
-		env->yc = 0;
-		while (env->yc + 1 != env->y)
-		{
-			env->color = 0;
-			if (env->xc != 0)
-			{
-				env->tmp2x = env->xend;
-				env->tmp2y = env->yend;
-			}
-			if (env->yc == 0)
-			{
-				env->tmp2x = env->xc * env->up;
-				env->tmp2y = env->yc;
-			}
-			if (env->tab[env->yc][env->xc] > 0 && env->tab[env->yc + 1][env->xc] > 0)
-				env->color = 1;
-			else if (env->tab[env->yc][env->xc] > 0 && env->tab[env->yc + 1][env->xc] == 0)
-				env->color = 2;
-			else if (env->tab[env->yc][env->xc] == 0 && env->tab[env->yc + 1][env->xc] > 0 && env->yc > 0)
-				env->color = 2;
-			env->yend = (env->yc + 1) * env->up;
-			env->xend = env->xc * env->up;
-			p1.x = env->tmp2x;
-			p1.y = env->tmp2y;
-			p2.x = env->xend;
-			p2.y = env->yend;
-			//printf("----\nx1 = %f y1 = %f\n----\nx2 = %f y2 = %f\n", p1.x, p1.y, p2.x, p2.y);
-			ft_drawline(env, p1, p2);
-			env->yc++;
-		}
-		env->xc++;
-	}
 }
 
-/*void	ft_while_y(t_env *env)
+void	ft_while_y(t_env *env)
 {
 	t_point		p1;
 	t_point		p2;

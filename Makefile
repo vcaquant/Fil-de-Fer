@@ -10,7 +10,8 @@ SRC = 			fdf.c \
 						drawline.c \
 						drawline_beeline.c \
 						drawline_cadran.c \
-						drawline_cadran2.c
+						drawline_cadran2.c \
+						rotations.c
 
 
 OBJ = 			fdf.o \
@@ -23,7 +24,8 @@ OBJ = 			fdf.o \
 						drawline.o \
 						drawline_beeline.o \
 						drawline_cadran.o \
-						drawline_cadran2.o
+						drawline_cadran2.o \
+						rotations.o
 
 HEADER =		./libft/libft.h\
 
