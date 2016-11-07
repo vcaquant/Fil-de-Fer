@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int		ft_init_struct(t_env **env, char **av)
+int		ft_init_struct(t_env **env, t_matrix **matrix, char **av)
 {
 	int		i;
 	char	*str;
@@ -21,11 +21,14 @@ int		ft_init_struct(t_env **env, char **av)
 	str = av[1];
 	if (!(*env = (t_env*)malloc(sizeof(t_env))))
 		return (0);
+	if (!(*matrix = (t_matrix*)malloc(sizeof(t_matrix))))
+		return (0);
 	(*env)->fix_x = 200;
 	(*env)->fix_y = 80;
 	(*env)->iso_y = 1;
 	(*env)->up = 10;
 	(*env)->s_win = NULL;
+	//(*env)->matrix = NULL;
 	return (1);
 }
 
@@ -41,12 +44,13 @@ void	ft_debug(int **tab, int xc, int yc)
 int		main(int ac, char **av)
 {
 	t_env	*env;
+	t_matrix *matrix;
 	int		test;
 
 	test = ft_error(ac);
 	if (test == -1)
 		return (-1);
-	if (!ft_init_struct(&env, av))
+	if (!ft_init_struct(&env, &matrix, av))
 		return (-1);
 	if (ft_init_tab(env, av) == -1)
 		return (ft_map_not_valid());
