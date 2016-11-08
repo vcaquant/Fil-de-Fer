@@ -120,12 +120,12 @@ int		aff_key(int keycode, t_env *env)
 		else
 		{
 			mlx_string_put(env->mlx, env->win, 0, 0, RED, "Help it's already open");
-			ft_putstr("\033[31mYou can't open two HELP\033[0m\n");
+			ft_putstr("\033[31m✖︎ You can't open two HELP\033[0m\n");
 		}
 	}
 	if (keycode == 12 || keycode == 53)
 	{
-		ft_putstr("\033[0;32mFdF Closed\033[0m\n");
+		ft_putstr("\033[0;32m✔︎ FdF Closed\033[0m\n");
 		exit(EXIT_SUCCESS);
 	}
 	if (keycode == 40 || keycode == 46)
