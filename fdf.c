@@ -25,8 +25,9 @@ int		ft_init_struct(t_env **env, char **av)
 		return (0);
 	(*env)->fix_x = 200;
 	(*env)->fix_y = 80;
-	(*env)->iso_y = 1;
+	(*env)->iso = 1;
 	(*env)->up = 10;
+	(*env)->is = 0;
 	(*env)->s_win = NULL;
 	return (1);
 }

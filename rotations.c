@@ -24,18 +24,21 @@ static void		apply_matrix(t_env *env)
 			env->matrix->b2 + env->tab[env->yc][env->xc] * env->matrix->c2);
 	tab_tmp = (env->xc * env->matrix->a3 + env->yc *
 			env->matrix->b3 + env->tab[env->yc][env->xc] * env->matrix->c3);
-	env->xc++;
-	mlx_pixel_put(env->mlx, env->win, (x_tmp - y_tmp), (y_tmp + x_tmp), WHITE);
+	/*if (env->xc != 0)
+		x_tmp *= env->up;
+	y_tmp *= env->up;*/
+	mlx_pixel_put(env->mlx, env->win, x_tmp, y_tmp, WHITE);
 	//= y_tmp;
 }
 
 static void		x_rotate(t_env *env, double teta)
 {
-	int i;
+	int 	i;
+	int		yc;
+	int		xc;
 
 	i = 0;
-	env->xc = 0;
-	env->yc = 0;
+	yc = 0;
 	env->matrix->a1 = 1;
 	env->matrix->a2 = 0;
 	env->matrix->a3 = 0;
@@ -45,10 +48,10 @@ static void		x_rotate(t_env *env, double teta)
 	env->matrix->c1 = 0;
 	env->matrix->c2 = sin(teta);
 	env->matrix->c3 = cos(teta);
-	while (env->yc < env->y)
+	while (yc < env->y)
 	{
-		ft_putstr("matrix\n");
-		while (env->xc < env->x)
+		xc = 0;
+		while (xc <= env->x)
 		{
 			//env->xc -= (W_X / 3);
 			//env->yc -= (W_Y / 3);
@@ -56,7 +59,9 @@ static void		x_rotate(t_env *env, double teta)
 			//env->xc += (W_X / 3);
 			//env->yc += (W_Y / 3);
 			//i++;
+			xc++;
 		}
+		yc++;
 		env->yc++;
 	}
 }

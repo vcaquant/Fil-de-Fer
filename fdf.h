@@ -28,6 +28,7 @@
 # define G_P		0x00CCFF66
 # define G_F		0x0000CC00
 # define Y_P		0x00CCCC66
+
 # define ROTATE_VALUE 0.174533
 
 # include "libft/libft.h"
@@ -82,8 +83,8 @@ typedef struct	s_env
 	int		xoy;
 	int		i;
 	int		zoom;
-	double	iso_x;
-	double	iso_y;
+	int		is;
+	double	iso;
 	int		fix_x;
 	int		fix_y;
 	int		up;

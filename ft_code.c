@@ -15,17 +15,21 @@
 void	iso(t_env *env, int keycode)
 {
 	mlx_clear_window(env->mlx, env->win);
+	if (env->is == 0)
+		env->is++;
+	else
+		env->is--;
 	if (keycode == 34)
 	{
-		if (env->iso_y == 1)
-			env->iso_y = 2;
+		if (env->iso == 1)
+			env->iso = 2;
 		else
-			env->iso_y = 1;
+			env->iso = 1;
 	}
 	else if (keycode == 31)
-		env->iso_y++;
-	else if (keycode == 35 && env->iso_y > 1)
-		env->iso_y--;
+		env->iso++;
+	else if (keycode == 35 && env->iso > 1)
+		env->iso--;
 	name_y(env);
 	//ft_while_y(env);
 }
