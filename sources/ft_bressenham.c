@@ -24,27 +24,29 @@ void	color1(t_env *env, int x, int y)
 {
 	if (env->iso == 1)
 	{
-		if ((env->tab[env->yc][env->xc + 1] >= 1 && env->tab[env->yc][env->xc + 1] <= 10) || (env->tab[env->yc + 1][env->xc] >= 1 && env->tab[env->yc + 1][env->xc + 1] <= 10) || (env->tab[env->yc][env->xc] >= 1 && env->tab[env->yc][env->xc] <= 10))
+		if (ft_ex1(env) == 1)
 			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_P);
-		else if ((env->tab[env->yc][env->xc + 1] >= 11 && env->tab[env->yc][env->xc + 1] <= 30) || (env->tab[env->yc + 1][env->xc] >= 11 && env->tab[env->yc + 1][env->xc + 1] <= 20) || (env->tab[env->yc][env->xc] >= 11 && env->tab[env->yc][env->xc] <= 20))
+		else if (ft_ex2(env) == 1)
 			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_F);
-		else if ((env->tab[env->yc][env->xc + 1] >= 31 && env->tab[env->yc][env->xc + 1] <= 40) || (env->tab[env->yc + 1][env->xc] >= 21 && env->tab[env->yc + 1][env->xc + 1] <= 30) || (env->tab[env->yc][env->xc] >= 21 && env->tab[env->yc][env->xc] <= 30))
+		else if (ft_ex3(env) == 1)
 			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, Y_P);
-		else if ((env->tab[env->yc][env->xc + 1] >= 41 && env->tab[env->yc][env->xc + 1] <= 70) || (env->tab[env->yc + 1][env->xc] >= 31 && env->tab[env->yc + 1][env->xc + 1] <= 60) || (env->tab[env->yc][env->xc] >= 31 && env->tab[env->yc][env->xc] <= 60))
+		else if (ft_ex4(env) == 1)
 			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, BROWN);
 		else
 			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, WHITE);
 	}
 	else
 	{
-		if ((env->tab[env->yc][env->xc + 1] >= 1 && env->tab[env->yc][env->xc + 1] <= 10) || (env->tab[env->yc + 1][env->xc] >= 1 && env->tab[env->yc + 1][env->xc + 1] <= 10) || (env->tab[env->yc][env->xc] >= 1 && env->tab[env->yc][env->xc] <= 10))
-			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, AZUR);
-		else if ((env->tab[env->yc][env->xc + 1] >= 11 && env->tab[env->yc][env->xc + 1] <= 30) || (env->tab[env->yc + 1][env->xc] >= 11 && env->tab[env->yc + 1][env->xc + 1] <= 20) || (env->tab[env->yc][env->xc] >= 11 && env->tab[env->yc][env->xc] <= 20))
-			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, AZUR_F);
-		else if ((env->tab[env->yc][env->xc + 1] >= 31 && env->tab[env->yc][env->xc + 1] <= 40) || (env->tab[env->yc + 1][env->xc] >= 21 && env->tab[env->yc + 1][env->xc + 1] <= 30) || (env->tab[env->yc][env->xc] >= 21 && env->tab[env->yc][env->xc] <= 30))
-			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, ABSINTHE);
-		else
+		if (ft_ex1(env) == 1)
+			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, G_P);
+		else if (ft_ex2(env) == 1)
+			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, G_F);
+		else if (ft_ex3(env) == 1)
+			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, Y_P);
+		else if (ft_ex4(env) == 1)
 			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, BROWN);
+		else
+			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, WHITE);
 	}
 }
 
@@ -61,7 +63,7 @@ void	ft_color(t_env *env, int x, int y)
 			if (env->iso == 1)
 				mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, AZUR);
 			else
-				mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, WHITE);
+				mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, AZUR);
 		}
 	}
 	else if (env->yc < env->y || env->xc < env->x)
@@ -73,7 +75,7 @@ void	ft_color(t_env *env, int x, int y)
 			if (env->iso == 1)
 				mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, AZUR);
 			else
-				mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, WHITE);
+				mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, AZUR);
 		}
 	}
 }

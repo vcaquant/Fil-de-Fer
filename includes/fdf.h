@@ -148,4 +148,9 @@ void			dy_null_b(t_drawline *draw, t_env *env);
 void			name_x(t_env *env);
 void			name_y(t_env *env);
 
+int				ft_ex1(t_env *env);
+int				ft_ex2(t_env *env);
+int				ft_ex3(t_env *env);
+int				ft_ex4(t_env *env);
+
 #endif
