@@ -1,17 +1,16 @@
 NAME = 			fdf
 
-SRC = 			fdf.c \
-						ft_code.c \
-						ft_help.c \
-						ft_bressenham.c \
-						ft_recup.c \
-						ft_count.c \
-						ft_error.c \
-						drawline.c \
-						drawline_beeline.c \
-						drawline_cadran.c \
-						drawline_cadran2.c \
-						rotations.c
+SRC = 			sources/fdf.c \
+						sources/ft_code.c \
+						sources/ft_help.c \
+						sources/ft_bressenham.c \
+						sources/ft_recup.c \
+						sources/ft_count.c \
+						sources/ft_error.c \
+						sources/drawline.c \
+						sources/drawline_beeline.c \
+						sources/drawline_cadran.c \
+						sources/drawline_cadran2.c
 
 
 OBJ = 			fdf.o \
@@ -24,8 +23,7 @@ OBJ = 			fdf.o \
 						drawline.o \
 						drawline_beeline.o \
 						drawline_cadran.o \
-						drawline_cadran2.o \
-						rotations.o
+						drawline_cadran2.o
 
 HEADER =		./libft/libft.h\
 
