@@ -21,8 +21,6 @@ int		ft_init_struct(t_env **env, char **av)
 	str = av[1];
 	if (!(*env = (t_env*)malloc(sizeof(t_env))))
 		return (0);
-	if (!((*env)->matrix = malloc(sizeof(t_matrix))))
-		return (0);
 	(*env)->fix_x = 200;
 	(*env)->fix_y = 80;
 	(*env)->iso = 1;

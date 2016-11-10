@@ -19,12 +19,12 @@
 # define FIX_X 450
 
 # define BLACK		0x000000
-# define WHITE		0xFFFFFF
+# define WHI		0xFFFFFF
 # define AZUR		0x74D0F1
 # define AZUR_F		0x1E7FCB
 # define ABSINTHE	0x7FDD4C
 # define RED		0x00FF0000
-# define BROWN		0x00996600
+# define BRO		0x00996600
 # define G_P		0x00CCFF66
 # define G_F		0x0000CC00
 # define Y_P		0x00CCCC66
@@ -49,19 +49,6 @@ typedef struct	s_point
 	double		y;
 	double		z;
 }				t_point;
-
-typedef struct	s_matrix
-{
-	double		a1;
-	double		a2;
-	double		a3;
-	double		b1;
-	double		b2;
-	double		b3;
-	double		c1;
-	double		c2;
-	double		c3;
-}				t_matrix;
 
 typedef struct	s_env
 {
@@ -99,8 +86,6 @@ typedef struct	s_env
 	int		stocky;
 
 	char	*line;
-
-	t_matrix	*matrix;
 }				t_env;
 
 typedef struct	s_drawline
@@ -122,7 +107,17 @@ int				ft_count_x(char *str);
 int				ft_init_tab(t_env *env, char **av);
 int				*ft_recupline(char *str);
 void			ft_recup(t_env *env);
+
 void			ft_color(t_env *env, int x, int y);
+void 			color1(t_env *env, int x, int y);
+void 			color2(t_env *env, int x, int y);
+void 			aff_color1(t_env *env, int x, int y);
+void 			aff_color2(t_env *env, int x, int y);
+void			end_line_color(t_env *env, int x, int y);
+void			write_end_color(t_env *env, int x, int y);
+void			write_end_color_iso(t_env *env, int x, int y);
+
+
 
 int				aff_key(int keycode, t_env *env);
 int				aff_help_exit(int keycode, t_env *env);

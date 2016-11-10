@@ -12,44 +12,6 @@
 
 #include "../includes/fdf.h"
 
-void	color2(t_env *env, int x, int y)
-{
-	if (env->iso == 1)
-		mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, RED);
-	else
-		mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, RED);
-}
-
-void	color1(t_env *env, int x, int y)
-{
-	if (env->iso == 1)
-	{
-		if (ft_ex1(env) == 1)
-			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_P);
-		else if (ft_ex2(env) == 1)
-			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_F);
-		else if (ft_ex3(env) == 1)
-			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, Y_P);
-		else if (ft_ex4(env) == 1)
-			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, BROWN);
-		else
-			mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, WHITE);
-	}
-	else
-	{
-		if (ft_ex1(env) == 1)
-			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, G_P);
-		else if (ft_ex2(env) == 1)
-			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, G_F);
-		else if (ft_ex3(env) == 1)
-			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, Y_P);
-		else if (ft_ex4(env) == 1)
-			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, BROWN);
-		else
-			mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, WHITE);
-	}
-}
-
 void	ft_color(t_env *env, int x, int y)
 {
 	if (env->yc + 1 < env->y && env->xc + 1 < env->x)
@@ -61,9 +23,11 @@ void	ft_color(t_env *env, int x, int y)
 		else
 		{
 			if (env->iso == 1)
-				mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, AZUR);
+				mlx_pixel_put(env->mlx, env->win, x + env->fix_x,
+					y + env->fix_y, AZUR);
 			else
-				mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, AZUR);
+				mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x,
+					((y + x) / env->iso) + env->fix_y, AZUR);
 		}
 	}
 	else if (env->yc < env->y || env->xc < env->x)
@@ -71,12 +35,7 @@ void	ft_color(t_env *env, int x, int y)
 		if (env->color == 2)
 			color2(env, x, y);
 		else
-		{
-			if (env->iso == 1)
-				mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, AZUR);
-			else
-				mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x, ((y + x) / env->iso) + env->fix_y, AZUR);
-		}
+			end_line_color(env, x, y);
 	}
 }
 
@@ -107,26 +66,25 @@ void	name_x(t_env *env)
 			env->color = 0;
 			if (env->xc != 0)
 			{
-				env->tmp2x = env->xend;
-				env->tmp2y = env->yend;
+				p1.x = p2.x;
+				p1.y = p2.y;
 			}
 			if (env->xc == 0)
 			{
-				env->tmp2x = env->xc - z;
-				env->tmp2y = env->yc * env->up - z;
+				p1.y = env->yc * env->up - z;
+				p1.x = env->xc - z;
 			}
-			if (env->tab[env->yc][env->xc] > 0 && env->tab[env->yc][env->xc + 1] > 0)
+			if (env->tab[env->yc][env->xc] > 0 &&
+				env->tab[env->yc][env->xc + 1] > 0)
 				env->color = 1;
-			else if (env->tab[env->yc][env->xc] > 0 && env->tab[env->yc][env->xc + 1] == 0)
+			else if (env->tab[env->yc][env->xc] > 0 &&
+				env->tab[env->yc][env->xc + 1] == 0)
 				env->color = 2;
-			else if (env->tab[env->yc][env->xc] == 0 && env->tab[env->yc][env->xc + 1] > 0)
+			else if (env->tab[env->yc][env->xc] == 0 &&
+				env->tab[env->yc][env->xc + 1] > 0)
 				env->color = 2;
-			env->xend = (env->xc + 1) * env->up - z2;
-			env->yend = env->yc * env->up - z2;
-			p1.x = env->tmp2x;
-			p1.y = env->tmp2y;
-			p2.x = env->xend;
-			p2.y = env->yend;
+			p2.x = (env->xc + 1) * env->up - z2;
+			p2.y = env->yc * env->up - z2;
 			ft_drawline(env, p1, p2);
 			env->xc++;
 		}
@@ -162,26 +120,25 @@ void	name_y(t_env *env)
 			env->color = 0;
 			if (env->yc != 0)
 			{
-				env->tmp2x = env->xend;
-				env->tmp2y = env->yend;
+				p1.x = p2.x;
+				p1.y = p2.y;
 			}
 			if (env->yc == 0)
 			{
-				env->tmp2x = env->xc * env->up - z;
-				env->tmp2y = env->yc - z;
+				p1.x = env->xc * env->up - z;
+				p1.y = env->yc - z;
 			}
-			if (env->tab[env->yc][env->xc] > 0 && env->tab[env->yc + 1][env->xc] > 0)
+			if (env->tab[env->yc][env->xc] > 0 &&
+				env->tab[env->yc + 1][env->xc] > 0)
 				env->color = 1;
-			else if (env->tab[env->yc][env->xc] > 0 && env->tab[env->yc + 1][env->xc] == 0)
+			else if (env->tab[env->yc][env->xc] > 0 &&
+				env->tab[env->yc + 1][env->xc] == 0)
 				env->color = 2;
-			else if (env->tab[env->yc][env->xc] == 0 && env->tab[env->yc + 1][env->xc] > 0)
+			else if (env->tab[env->yc][env->xc] == 0 &&
+				env->tab[env->yc + 1][env->xc] > 0)
 				env->color = 2;
-			env->yend = (env->yc + 1) * env->up - z2;
-			env->xend = env->xc * env->up - z2;
-			p1.x = env->tmp2x;
-			p1.y = env->tmp2y;
-			p2.x = env->xend;
-			p2.y = env->yend;
+			p2.y = (env->yc + 1) * env->up - z2;
+			p2.x = env->xc * env->up - z2;
 			ft_drawline(env, p1, p2);
 			env->yc++;
 		}

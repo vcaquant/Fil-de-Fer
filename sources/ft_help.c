@@ -25,24 +25,24 @@ int		aff_help_exit(int keycode, t_env *env)
 
 void	write_command(t_env *env)
 {
-	mlx_string_put(env->mlx, env->s_win, 0, 105, WHITE,
+	mlx_string_put(env->mlx, env->s_win, 0, 105, WHI,
 		"> = Deplacement de la map vers la droite");
-	mlx_string_put(env->mlx, env->s_win, 0, 120, WHITE,
+	mlx_string_put(env->mlx, env->s_win, 0, 120, WHI,
 		"< = Deplacement de la map vers la gauche");
-	mlx_string_put(env->mlx, env->s_win, 0, 135, WHITE,
+	mlx_string_put(env->mlx, env->s_win, 0, 135, WHI,
 		"^ = Deplacement de la map vers le haut");
-	mlx_string_put(env->mlx, env->s_win, 0, 150, WHITE,
+	mlx_string_put(env->mlx, env->s_win, 0, 150, WHI,
 		"v = Deplacement de la map vers le bas");
-	mlx_string_put(env->mlx, env->s_win, 0, 215, WHITE, "+ = Zoom");
-	mlx_string_put(env->mlx, env->s_win, 0, 230, WHITE, "- = Dezoom");
-	mlx_string_put(env->mlx, env->s_win, 0, 295, WHITE,
+	mlx_string_put(env->mlx, env->s_win, 0, 215, WHI, "+ = Zoom");
+	mlx_string_put(env->mlx, env->s_win, 0, 230, WHI, "- = Dezoom");
+	mlx_string_put(env->mlx, env->s_win, 0, 295, WHI,
 		"K = Augmentation des Z");
-	mlx_string_put(env->mlx, env->s_win, 0, 310, WHITE, "M = Diminution des Z");
-	mlx_string_put(env->mlx, env->s_win, 0, 375, WHITE,
+	mlx_string_put(env->mlx, env->s_win, 0, 310, WHI, "M = Diminution des Z");
+	mlx_string_put(env->mlx, env->s_win, 0, 375, WHI,
 		"I = Mettre ou enlever isometrie");
-	mlx_string_put(env->mlx, env->s_win, 0, 390, WHITE,
+	mlx_string_put(env->mlx, env->s_win, 0, 390, WHI,
 		"O = Augmenter l'isometrie");
-	mlx_string_put(env->mlx, env->s_win, 0, 405, WHITE,
+	mlx_string_put(env->mlx, env->s_win, 0, 405, WHI,
 		"P = Baisser l'isometrie");
 }
 
