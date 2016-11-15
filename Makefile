@@ -49,26 +49,26 @@ CC = 				gcc
 all:	comp_oth $(NAME)
 
 comp_oth:
-		make fclean -C $(LIBFT_DIR)
-		make -C $(LIBFT_DIR)
-		make -C $(LIBX_DIR)
+		@make fclean -C $(LIBFT_DIR)
+		@make -C $(LIBFT_DIR)
+		@make -C $(LIBX_DIR)
 
 $(NAME):
 		@clear
-		$(CC) $(FLAGS) -c $(SRC) $(HEADER)
-		$(CC) -o $(NAME) $(OBJ) $(PT_A) $(LIBX_FS)
+		@$(CC) $(FLAGS) -c $(SRC) $(HEADER)
+		@$(CC) -o $(NAME) $(OBJ) $(PT_A) $(LIBX_FS)
 
 clean:
 		@clear
-		rm -f $(OBJ)
-		rm -f fdf.h.gch
-		make clean -C $(LIBFT_DIR)
-		make clean -C $(LIBX_DIR)
+		@rm -f $(OBJ)
+		@rm -f fdf.h.gch
+		@make clean -C $(LIBFT_DIR)
+		@make clean -C $(LIBX_DIR)
 
 fclean:	clean
 		@clear
-		rm -f $(NAME)
-		make fclean -C $(LIBFT_DIR)
+		@rm -f $(NAME)
+		@make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 		@clear
