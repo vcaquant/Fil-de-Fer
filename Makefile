@@ -69,6 +69,7 @@ $(NAME):
 		@clear
 		@$(CC) $(FLAGS) -c $(SRC) $(HEADER)
 		@$(CC) -o $(NAME) $(OBJ) $(PT_A) $(LIBX_FS)
+		@echo "\033[0;32m✔︎ Compilation Done\033[0m"
 
 clean:
 		@clear
@@ -83,6 +84,5 @@ fclean:	clean
 		@make fclean -C $(LIBFT_DIR)
 
 re: fclean all
-		@clear
 
 .PHONY: all, clean, fclean, re
