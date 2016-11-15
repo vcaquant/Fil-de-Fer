@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:46:57 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/10/31 15:50:29 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/11/15 12:44:51 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ void	iso(t_env *env, int keycode)
 		else
 			env->iso = 1;
 	}
-	else if (keycode == 31)
-		env->iso++;
-	else if (keycode == 35 && env->iso > 1)
-		env->iso--;
 	name_y(env);
 }
 
@@ -83,19 +79,7 @@ int		aff_key(int keycode, t_env *env)
 	ft_putnbr(keycode);
 	ft_putchar('\n');
 	if (keycode == 4)
-	{
-		if (env->s_win == NULL)
-		{
-			ft_putstr("\033[0;33mOpen Help\033[0m\n");
-			aff_help(env);
-		}
-		else
-		{
-			mlx_string_put(env->mlx, env->win, 0, 0, RED,
-				"Help it's already open");
-			ft_putstr("\033[31m✖︎ You can't open other HELP\033[0m\n");
-		}
-	}
+		too_much_help(env);
 	if (keycode == 12 || keycode == 53)
 	{
 		ft_putstr("\033[0;32m✔︎ FdF Closed\033[0m\n");
@@ -107,7 +91,7 @@ int		aff_key(int keycode, t_env *env)
 		move(env, keycode);
 	if (keycode == 24 || keycode == 27)
 		zoom(env, keycode);
-	if (keycode == 34 || keycode == 31 || keycode == 35)
+	if (keycode == 34)
 		iso(env, keycode);
 	return (0);
 }

@@ -5,7 +5,6 @@ SRC = 			sources/fdf.c \
 						sources/ft_help.c \
 						sources/ft_bressenham.c \
 						sources/ft_recup.c \
-						sources/ft_count.c \
 						sources/ft_error.c \
 						sources/drawline.c \
 						sources/drawline_beeline.c \
@@ -21,7 +20,6 @@ OBJ = 			fdf.o \
 						ft_help.o \
 						ft_bressenham.o \
 						ft_recup.o \
-						ft_count.o \
 						ft_error.o \
 						drawline.o \
 						drawline_beeline.o \

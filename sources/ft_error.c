@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:54:08 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/11/10 14:02:11 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/11/15 12:45:08 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,21 @@ int		ft_map_not_valid(void)
 {
 	ft_putstr("It's not a valid map\n");
 	return (-1);
+}
+
+void	too_much_help(t_env *env)
+{
+	if (env->s_win == NULL)
+	{
+		ft_putstr("\033[0;33mOpen Help\033[0m\n");
+		aff_help(env);
+	}
+	else
+	{
+		mlx_string_put(env->mlx, env->win, 0, 0, RED,
+			"Help it's already open");
+		ft_putstr("\033[31m✖︎ You can't open other HELP\033[0m\n");
+	}
 }
 
 void	inc_z(t_env *env)

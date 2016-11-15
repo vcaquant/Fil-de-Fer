@@ -40,10 +40,6 @@ void	write_command(t_env *env)
 	mlx_string_put(env->mlx, env->s_win, 0, 310, WHI, "M = Diminution des Z");
 	mlx_string_put(env->mlx, env->s_win, 0, 375, WHI,
 		"I = Mettre ou enlever isometrie");
-	mlx_string_put(env->mlx, env->s_win, 0, 390, WHI,
-		"O = Augmenter l'isometrie");
-	mlx_string_put(env->mlx, env->s_win, 0, 405, WHI,
-		"P = Baisser l'isometrie");
 }
 
 void	write_title1(t_env *env)

@@ -20,13 +20,13 @@ void	write_end_color(t_env *env, int x, int y)
 			env->tab[env->yc][env->xc] <= 10)
 		mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_P);
 	else if (env->tab[env->yc][env->xc] >= 11 &&
-			env->tab[env->yc][env->xc] <= 20)
-		mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_F);
-	else if (env->tab[env->yc][env->xc] >= 21 &&
 			env->tab[env->yc][env->xc] <= 30)
-		mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, Y_P);
+		mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, G_F);
 	else if (env->tab[env->yc][env->xc] >= 31 &&
-			env->tab[env->yc][env->xc] <= 60)
+			env->tab[env->yc][env->xc] <= 40)
+		mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, Y_P);
+	else if (env->tab[env->yc][env->xc] >= 41 &&
+			env->tab[env->yc][env->xc] <= 70)
 		mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, BRO);
 	else
 		mlx_pixel_put(env->mlx, env->win, x + env->fix_x, y + env->fix_y, WHI);
@@ -42,15 +42,15 @@ void	write_end_color_iso(t_env *env, int x, int y)
 		mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x,
 				((y + x) / env->iso) + env->fix_y, G_P);
 	else if (env->tab[env->yc][env->xc] >= 11 &&
-			env->tab[env->yc][env->xc] <= 20)
-		mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x,
-				((y + x) / env->iso) + env->fix_y, G_F);
-	else if (env->tab[env->yc][env->xc] >= 21 &&
 			env->tab[env->yc][env->xc] <= 30)
 		mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x,
-				((y + x) / env->iso) + env->fix_y, Y_P);
+				((y + x) / env->iso) + env->fix_y, G_F);
 	else if (env->tab[env->yc][env->xc] >= 31 &&
-			env->tab[env->yc][env->xc] <= 60)
+			env->tab[env->yc][env->xc] <= 40)
+		mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x,
+				((y + x) / env->iso) + env->fix_y, Y_P);
+	else if (env->tab[env->yc][env->xc] >= 41 &&
+			env->tab[env->yc][env->xc] <= 70)
 		mlx_pixel_put(env->mlx, env->win, (x - y) + env->fix_x,
 				((y + x) / env->iso) + env->fix_y, BRO);
 	else

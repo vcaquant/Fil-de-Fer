@@ -30,13 +30,14 @@ int		ft_init_struct(t_env **env, char **av)
 	return (1);
 }
 
-void	ft_debug(int **tab, int xc, int yc)
+t_point	init_point(t_point p1, t_point p2, int xory)
 {
-	ft_putnbr(tab[yc][xc]);
-	if (tab[yc][xc] == 10 || tab[yc][xc] == 11 || tab[yc][xc] == 90)
-		ft_putchar(' ');
-	else
-		ft_putstr("  ");
+	if (xory != 0)
+	{
+		p1.x = p2.x;
+		p1.y = p2.y;
+	}
+	return (p1);
 }
 
 int		main(int ac, char **av)
