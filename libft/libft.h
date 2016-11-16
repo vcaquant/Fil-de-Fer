@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 11:35:30 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/05/10 13:59:49 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/11/16 21:40:17 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ char	**ft_strsplit(char const *s, char c);
 char	*ft_strnncpy(char *dst, const char *src, int ndeb, int nfin);
 void	ft_wait(void);
 void	ft_sleep(void);
-int 	get_next_line(int const fd, char **line);
+int		get_next_line(int const fd, char **line);
+
 #endif
