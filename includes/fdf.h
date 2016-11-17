@@ -29,8 +29,6 @@
 # define G_F		0x0000CC00
 # define Y_P		0x00CCCC66
 
-# define ROTATE_VALUE 0.174533
-
 # include "../libft/libft.h"
 # include "../minilibx_macos/mlx.h"
 # include "../libft/get_next_line.h"
