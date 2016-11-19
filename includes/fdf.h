@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:49:27 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/11/15 15:57:13 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/11/18 15:43:22 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct	s_env
 	double	iso;
 	int		fix_x;
 	int		fix_y;
-	int		up;
+	double	up;
 
 	int		endx;
 	int		endy;
@@ -148,6 +148,7 @@ void			while_x(t_env *env);
 void			while_y(t_env *env);
 void			ft_color(t_env *env, int x, int y);
 
+void			act_zoom(t_env *env, int keycode, double i);
 int				ft_ex1(t_env *env);
 int				ft_ex2(t_env *env);
 int				ft_ex3(t_env *env);

@@ -24,7 +24,7 @@ int		ft_error(int ac)
 
 int		ft_map_not_valid(void)
 {
-	ft_putstr("It's not a valid map\n");
+	ft_putstr("It's not a valid file\n");
 	return (-1);
 }
 

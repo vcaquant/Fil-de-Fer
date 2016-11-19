@@ -23,6 +23,8 @@ int		ft_init_tab(t_env *env, char **av)
 	i = 0;
 	y = 0;
 	env->fd = open(av[1], O_RDONLY);
+	if (env->fd == -1)
+		return (-1);
 	while ((ret = get_next_line((int const)env->fd, &line)) > 0)
 	{
 		x = 0;

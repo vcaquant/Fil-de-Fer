@@ -6,11 +6,19 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 14:59:30 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/11/10 15:24:59 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/11/18 15:42:14 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void	act_zoom(t_env *env, int keycode, double i)
+{
+	if (keycode == 24)
+		env->up += i;
+	else if (keycode == 27)
+		env->up -= i;
+}
 
 int		ft_ex1(t_env *env)
 {

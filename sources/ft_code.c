@@ -6,7 +6,7 @@
 /*   By: vcaquant <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/16 16:46:57 by vcaquant          #+#    #+#             */
-/*   Updated: 2016/11/15 12:44:51 by vcaquant         ###   ########.fr       */
+/*   Updated: 2016/11/18 15:41:54 by vcaquant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,17 @@ void	zoom(t_env *env, int keycode)
 {
 	mlx_clear_window(env->mlx, env->win);
 	if (env->up > 9)
-	{
-		if (keycode == 24)
-			env->up += 2 * (env->up / 10);
-		else if (keycode == 27)
-			env->up -= 2 * (env->up / 10);
-	}
+		act_zoom(env, keycode, (2 * (env->up / 10)));
+	else if (env->up > 3)
+		act_zoom(env, keycode, 2);
+	else if (env->up > 1)
+		act_zoom(env, keycode, 1);
+	else if (env->up > 0.2)
+		act_zoom(env, keycode, 0.2);
 	else
 	{
 		if (keycode == 24)
-			env->up += 2;
-		else if (keycode == 27)
-			env->up -= 2;
+			env->up += 0.2;
 	}
 	name_y(env);
 }
